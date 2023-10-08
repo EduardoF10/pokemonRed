@@ -3,8 +3,10 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    introMovie.load("videos/redIntro.mp4");
-    introMovie.play();
+    ofBackground(255, 255, 255);
+
+    // introMovie.load("videos/redIntro.mp4");
+    // introMovie.play();
 }
 
 //--------------------------------------------------------------
@@ -17,7 +19,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    introMovie.draw(0, 0, 480, 320);
+    // introMovie.draw(0, 0, 480, 320);
 
 }
 
