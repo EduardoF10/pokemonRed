@@ -1,8 +1,20 @@
 #pragma once
 
 #include "ofMain.h"
+#include "../Resources/Text.h"
 
 class ofApp : public ofBaseApp{
+
+	const double ORIGINAL_WIDTH = 240.0;
+	const double ORIGINAL_HEIGHT = 160.0;
+
+	private:
+	
+		void updateDim();
+		void setTextBox();
+		bool showTextBox;
+		Text* dummyTextBox;
+
 
 	public:
 		void setup();
@@ -23,6 +35,8 @@ class ofApp : public ofBaseApp{
 
 		double xPixMult;
 		double yPixMult;
+		double getPixMultX();
+		double getPixMultY();
 		
 		ofVideoPlayer introMovie;
 };
