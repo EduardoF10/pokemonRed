@@ -9,11 +9,23 @@ class ofApp : public ofBaseApp{
 	const double ORIGINAL_HEIGHT = 160.0;
 
 	private:
+
+		int fullScreenWidth;
+		int fullScreenHeight;
+
+		double screenStartX;
+		double screenStartY;
+		double screenWidth;
+		double screenHeight;
+		
 	
 		void updateDim();
+		void adjustGameScreen();
 		void setTextBox();
 		bool showTextBox;
 		Text* dummyTextBox;
+
+		void drawScreen();
 
 
 	public:

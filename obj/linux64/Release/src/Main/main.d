@@ -321,7 +321,8 @@ obj/linux64/Release/src/Main/main.o: \
  ../../../libs/openFrameworks/3d/ofCamera.h \
  ../../../libs/openFrameworks/3d/ofEasyCam.h \
  /home/edual/OF/apps/projects/pokemonRed/src/Main/ofApp.h \
- /home/edual/OF/apps/projects/pokemonRed/src/Main/../Resources/Text.h
+ /home/edual/OF/apps/projects/pokemonRed/src/Main/../Resources/Text.h \
+ /home/edual/OF/apps/projects/pokemonRed/src/Main/../Resources/TextSprites.h
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -968,3 +969,5 @@ obj/linux64/Release/src/Main/main.o: \
 /home/edual/OF/apps/projects/pokemonRed/src/Main/ofApp.h:
 
 /home/edual/OF/apps/projects/pokemonRed/src/Main/../Resources/Text.h:
+
+/home/edual/OF/apps/projects/pokemonRed/src/Main/../Resources/TextSprites.h:
