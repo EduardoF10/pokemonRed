@@ -7,6 +7,7 @@ class ofApp : public ofBaseApp{
 
 	const double ORIGINAL_WIDTH = 240.0;
 	const double ORIGINAL_HEIGHT = 160.0;
+	const int DEFAULT_TEXT_SPEED = 3;
 
 	private:
 

@@ -8,6 +8,7 @@ TextSprites::TextSprites() {
 ofImage TextSprites::getCharImage(ofImage charsImage, char textChar) {
 
     ofImage charImage;
+    charImage.allocate(CHARS_WIDTH, CHARS_HEIGHT, OF_IMAGE_COLOR_ALPHA);
 
     int xIndex;
     int yIndex;
@@ -28,6 +29,9 @@ ofImage TextSprites::getCharImage(ofImage charsImage, char textChar) {
         xIndex = FIND_START_ALPHA_NUM_X + (charIndex * ALPHA_NUM_SPACE_X);
     }
     else {
+
+        yIndex = FIND_START_NUMS_Y;
+
         if (textChar == '!') {
             xIndex = FIND_START_EXCLAM;
         }
@@ -67,10 +71,13 @@ ofImage TextSprites::getCharImage(ofImage charsImage, char textChar) {
         else if (textChar == '/') {
             xIndex = FIND_START_SLASH;
         }
+        else if (textChar == ' ') {
+            xIndex = FIND_WHITESPACE_X;
+            yIndex = FIND_WHITESPACE_Y;
+        }
         else {
             xIndex = FIND_START_QUES;
         }
-        yIndex = FIND_START_NUMS_Y;
     }
 
     charImage.cropFrom(charsImage, xIndex, yIndex, CHARS_WIDTH, CHARS_HEIGHT);
@@ -111,4 +118,13 @@ void TextSprites::setSprites() {
     for (char otherChar : OTHER_CHARS) {
         this->allChars[otherChar] = this->getCharImage(charsImage, otherChar);
     }
+}
+
+ofImage TextSprites::getQuickCharImage(int charVal) {
+
+    ofImage charImage;
+    charImage.allocate(CHARS_WIDTH, CHARS_HEIGHT, OF_IMAGE_COLOR_ALPHA);
+    charImage = this->allChars[charVal];
+    return charImage;
+
 }

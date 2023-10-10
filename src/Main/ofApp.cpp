@@ -17,7 +17,7 @@ void ofApp::setup(){
 }
 
 void ofApp::setTextBox() {
-    this->dummyTextBox = new  Text(3, 0, "Hello world!");
+    this->dummyTextBox = new  Text(DEFAULT_TEXT_SPEED, 0, "HELLO WORLD!MY NAME IS EDUARDO, I WILL BE YOUR HOST FOR POKEMON RED.DO YOU HAVE ANY QUESTIONS?");
 }
 
 //--------------------------------------------------------------
@@ -27,6 +27,8 @@ void ofApp::update(){
 
     this->updateDim();
     // introMovie.update();
+
+    this->dummyTextBox->tick();
 
 }
 

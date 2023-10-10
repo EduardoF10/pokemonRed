@@ -3,20 +3,18 @@
 #include <cmath>
 #include <string>
 
+const int LINE_CHAR_LIMIT = 26;
+
+const int CHAR_SPACE_X = 7;
+const int CHAR_SPACE_Y = 15;
+
+const int BOX_START_X = 7;
+const int BOX_START_Y = 116;
+const int BOX_START_TEXT_POS_X = 11;
+const int BOX_START_TEXT_POS_Y = 7;
+const int BOX_NEXT_LINE_Y = 22;
+
 class Text {
-
-    const int BOX_WIDTH = 226;
-    const int BOX_HEIGHT = 42;
-    const int CHARS_WIDTH = 6;
-    const int CHARS_HEIGHT = 14;
-    const int CHAR_SPACE_X = 7;
-    const int CHAR_SPACE_Y = 15;
-
-    const int BOX_START_X = 7;
-    const int BOX_START_Y = 116;
-    const int BOX_START_TEXT_POS_X = 9;
-    const int BOX_START_TEXT_POS_Y = 7;
-
 
 private:
 
@@ -32,15 +30,27 @@ private:
 
     int timer;  // Timer for animation
 
+    bool finishPrint;    // Print stopper
+
+    // Indexes for printing chars
+    int sentenceIndex;
+    int lineIndex;
+    int charIndex;
+
     int boxOption;    // Text box choice number
 
     std::string text;   // Text that will be displayed
 
+    std::vector<std::vector<std::string>> readyText;
+
     ofImage textBox;
 
-    int charIndex;  // Current char position
-
     TextSprites* textSprites;
+
+    void prepareText();
+
+    void printChar(char charVal, float xPos, float yPos, float width, float height);
+    void printAllChars();
 
 
 public:
