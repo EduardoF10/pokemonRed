@@ -32,6 +32,10 @@ private:
 
     bool finishPrint;    // Print stopper
 
+    bool goNextLine;    // Next line permission
+
+    bool showTextBox;   // Display stopper
+
     // Indexes for printing chars
     int sentenceIndex;
     int lineIndex;
@@ -68,6 +72,10 @@ public:
     void render();
 
     void tick();
+
+    void toggleNextLine();
+
+    void toggleShow(bool show);
 
     void quickDisplay();
 

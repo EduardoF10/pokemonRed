@@ -2,3 +2,8 @@
 bin/pokemonRed
 bin/pokemonRed_debug
 
+# Debug and Releases
+obj/linux64/Debug
+obj/linux64/Releases
+
+

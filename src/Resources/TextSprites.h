@@ -6,7 +6,7 @@
 const std::string ALL_NUMS = "0123456789";
 const std::string ALL_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string ALL_LOWER = "abcdefghijklmnopqrstuvwxyz";
-const std::string OTHER_CHARS = "!?.->{}[]=+,/";
+const std::string OTHER_CHARS = "!?.->{}[]=+,/ *";
 const int MAX_CHAR_INDEX = 125;
 const int CHARS_WIDTH = 6;
 const int CHARS_HEIGHT = 14;
@@ -32,6 +32,12 @@ const int FIND_START_SLASH = 189;
 
 const int FIND_WHITESPACE_X = 187;
 const int FIND_WHITESPACE_Y = 15;
+
+const int NEXT_CHAR = '*';
+const int FIND_START_NEXT_X = 175;
+const int FIND_START_NEXT_Y = 35;
+const int NEXT_WIDTH = 8;
+const int NEXT_HEIGHT = 7;
 
 const int FIND_BOX_X = 0;
 const int FIND_BOX_Y = 0;

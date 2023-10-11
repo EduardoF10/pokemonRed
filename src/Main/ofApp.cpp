@@ -124,6 +124,10 @@ void ofApp::updateDim(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+    if  (key == 'a') {
+        this->dummyTextBox->toggleNextLine();
+    }
+
 }
 
 //--------------------------------------------------------------

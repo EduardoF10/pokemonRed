@@ -6,6 +6,8 @@ Text::Text(int speed, int boxOption, std::string text) {
     this->charIndex = 0;
     this->speed = speed;
     this->finishPrint = false;
+    this->goNextLine = false;
+    this->showTextBox = true;
     this->boxOption = boxOption;
     this->text = text;
     this->timer = 0;
@@ -51,15 +53,33 @@ void Text::tick() {
                         this->finishPrint = true;
                     }
                     else {
-                        this->sentenceIndex += 1;
-                        this->charIndex = 0;
-                        this->lineIndex = 0;
+                        if (this->goNextLine) {
+                            this->sentenceIndex += 1;
+                            this->charIndex = 0;
+                            this->lineIndex = 0;
+                            this->goNextLine = false;
+                        }
+                        else {
+                            this->timer = this->speed;
+                        }
                     }
 
                 }
                 else {
-                    this->lineIndex += 1;
-                    this->charIndex = 0;
+                    if (this->lineIndex > 0) {
+                        if (this->goNextLine) {
+                            this->lineIndex += 1;
+                            this->charIndex = 0;
+                            this->goNextLine = false;
+                        }
+                        else {
+                            this->timer = this->speed;
+                        }
+                    }
+                    else {
+                        this->lineIndex += 1;
+                        this->charIndex = 0;
+                    }
                 }
 
             }
@@ -73,14 +93,30 @@ void Text::tick() {
         }
 
     }
+    else {
+        if (this->goNextLine) {
+            this->showTextBox = false;
+            this->goNextLine = false;
+        }
+    }
 
-    
+    this->goNextLine = false;
+}
+
+void Text::toggleNextLine() {
+    this->goNextLine = true;
+}
+
+void Text::toggleShow(bool show) {
+    this->showTextBox = show;
 }
 
 void Text::render() {
 
-    this->textBox.draw(this->screenStartX + (BOX_START_X * this->xMult), this->screenStartY + (BOX_START_Y * this->yMult), BOX_WIDTH * this->xMult, BOX_HEIGHT * this->yMult);
-    this->printAllChars();
+    if (this->showTextBox) {
+        this->textBox.draw(this->screenStartX + (BOX_START_X * this->xMult), this->screenStartY + (BOX_START_Y * this->yMult), BOX_WIDTH * this->xMult, BOX_HEIGHT * this->yMult);
+        this->printAllChars();
+    }
     
 }
 
@@ -116,16 +152,36 @@ void Text::printAllChars() {
         // Second line print
         xPos = startX;
         yPos = this->screenStartY + ((BOX_START_Y + BOX_NEXT_LINE_Y) * this->yMult);
+        int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
             this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
             xPos += CHAR_SPACE_X * this->xMult;
+            charCounter += 1;
+        }
+        // If end of line
+        if (charCounter == this->readyText.at(this->sentenceIndex).at(this->lineIndex).size()) {
+            
+            this->printChar(NEXT_CHAR, xPos, yPos, NEXT_WIDTH * this->xMult, NEXT_HEIGHT * this->yMult);
+            // //  If last line
+            // if (this->lineIndex == this->readyText.at(this->sentenceIndex).size() - 1) {
+            //     this->printChar(NEXT_CHAR, xPos, yPos, NEXT_WIDTH * this->xMult, NEXT_HEIGHT * this->yMult);
+            // }
         }
 
     }
     else {
+        int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
             this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
             xPos += CHAR_SPACE_X * this->xMult;
+            charCounter += 1;
+        }
+        // If end of line
+        if (charCounter == this->readyText.at(this->sentenceIndex).at(this->lineIndex).size()) {
+            // If end of sentence
+            if (this->lineIndex == this->readyText.at(this->sentenceIndex).size() - 1) {
+                this->printChar(NEXT_CHAR, xPos, yPos, NEXT_WIDTH * this->xMult, NEXT_HEIGHT * this->yMult);
+            }
         }
     }
 

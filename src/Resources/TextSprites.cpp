@@ -75,6 +75,10 @@ ofImage TextSprites::getCharImage(ofImage charsImage, char textChar) {
             xIndex = FIND_WHITESPACE_X;
             yIndex = FIND_WHITESPACE_Y;
         }
+        else if (textChar == '*') {
+            charImage.cropFrom(charsImage, FIND_START_NEXT_X, FIND_START_NEXT_Y, NEXT_WIDTH, NEXT_HEIGHT);
+            return charImage;
+        }
         else {
             xIndex = FIND_START_QUES;
         }
