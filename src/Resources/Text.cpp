@@ -138,6 +138,9 @@ void Text::printAllChars() {
     int startX = this->screenStartX + ((BOX_START_X + BOX_START_TEXT_POS_X) * this->xMult);
     int xPos = startX;
     int yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
+    char curChar;
+    char prev = ' ';
+    int charSpace;
 
     // If 2 liner
     if (this->lineIndex > 0) {
@@ -145,17 +148,22 @@ void Text::printAllChars() {
         // First line print
         int firstLineSize = this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).size();
         for (int i = 0; i < firstLineSize; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
         }
 
         // Second line print
+        prev = ' ';
         xPos = startX;
         yPos = this->screenStartY + ((BOX_START_Y + BOX_NEXT_LINE_Y) * this->yMult);
         int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
             charCounter += 1;
         }
         // If end of line
@@ -172,9 +180,11 @@ void Text::printAllChars() {
     else {
         int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
             charCounter += 1;
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
         }
         // If end of line
         if (charCounter == this->readyText.at(this->sentenceIndex).at(this->lineIndex).size()) {
@@ -221,5 +231,23 @@ void Text::prepareText() {
         }
         
     }
+
+}
+
+int Text::getCharSpace(char prev) {
+
+    int result = CHAR_SPACE_X;
+
+    if (prev == 'i') {
+        result -= 4;
+    }
+    else if (prev == 'l') {
+        result -= 3;
+    }
+    else if (prev == 'f' || prev == 'k' || prev == 'n' || prev == 'r' || prev == 's' || prev == 't' || prev == 'u') {
+        result -= 1;
+    }
+
+    return result;
 
 }

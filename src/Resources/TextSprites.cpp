@@ -108,7 +108,7 @@ void TextSprites::setSprites() {
 
     // Load image containing all chars
     ofImage charsImage;
-    charsImage.load("sprites/text.png");
+    charsImage.load("sprites/textA2.png");
 
     for (char number : ALL_NUMS) {
         this->allChars[number] = this->getCharImage(charsImage, number);

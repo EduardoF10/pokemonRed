@@ -56,6 +56,8 @@ private:
     void printChar(char charVal, float xPos, float yPos, float width, float height);
     void printAllChars();
 
+    int getCharSpace(char prev);
+
 
 public:
 
