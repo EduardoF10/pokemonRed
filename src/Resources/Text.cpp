@@ -1,6 +1,10 @@
 #include "Text.h"
 
 Text::Text(int speed, int boxOption, std::string text) {
+    this->scale = 3;
+    this->r = 0;
+    this->g = 0;
+    this->b = 0;
     this->sentenceIndex = 0;
     this->lineIndex = 0;
     this->charIndex = 0;
@@ -138,6 +142,9 @@ void Text::printAllChars() {
     int startX = this->screenStartX + ((BOX_START_X + BOX_START_TEXT_POS_X) * this->xMult);
     int xPos = startX;
     int yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
+    char curChar;
+    char prev = ' ';
+    int charSpace;
 
     // If 2 liner
     if (this->lineIndex > 0) {
@@ -145,17 +152,22 @@ void Text::printAllChars() {
         // First line print
         int firstLineSize = this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).size();
         for (int i = 0; i < firstLineSize; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex - 1).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
         }
 
         // Second line print
+        prev = ' ';
         xPos = startX;
         yPos = this->screenStartY + ((BOX_START_Y + BOX_NEXT_LINE_Y) * this->yMult);
         int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
             charCounter += 1;
         }
         // If end of line
@@ -172,9 +184,11 @@ void Text::printAllChars() {
     else {
         int charCounter = 0;
         for (int i = 0; i < this->charIndex + 1; i++) {
-            this->printChar(this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i), xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
-            xPos += CHAR_SPACE_X * this->xMult;
+            curChar = this->readyText.at(this->sentenceIndex).at(this->lineIndex).at(i);
+            this->printChar(curChar, xPos, yPos, CHARS_WIDTH * this->xMult, CHARS_HEIGHT * this->yMult);
             charCounter += 1;
+            charSpace = getCharSpace(curChar);
+            xPos += charSpace * this->xMult;
         }
         // If end of line
         if (charCounter == this->readyText.at(this->sentenceIndex).at(this->lineIndex).size()) {
@@ -222,4 +236,93 @@ void Text::prepareText() {
         
     }
 
+}
+
+int Text::getCharSpace(char prev) {
+
+    int result = CHAR_SPACE_X;
+
+    if (prev == 'i') {
+        result -= 4;
+    }
+    else if (prev == 'l') {
+        result -= 3;
+    }
+    else if (prev == 'f' || prev == 'k' || prev == 'n' || prev == 'r' || prev == 's' || prev == 't' || prev == 'u') {
+        result -= 1;
+    }
+
+    return result;
+
+}
+
+
+void Text::horizontalStick(double startX, double startY, double length) {
+    ofDrawRectangle(startX, startY, length * this->scale, this->scale);
+}
+
+void Text::verticalStick(double startX, double startY, double length) {
+    ofDrawRectangle(startX, startY, this->scale, length * this->scale);
+}
+
+
+double Text::lowerA(double startX, double startY) {
+
+    // Record the start time
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+
+    // Record the end time
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    // Calculate the duration in microseconds
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+
+    // Print the execution time
+    // std::cout << "Execution time: " << duration << " microseconds" << std::endl;
+
+    this->execTimeCount += 1;
+    this->execTimeTotal += duration;
+    this-> execTimeAvg = this->execTimeTotal / this->execTimeCount;
+
+    // Print the execution time avg
+    std::cout << "Execution time Avg: " << this->execTimeAvg << " microseconds" << std::endl;
+
+    return 6 * this->scale;
+}
+
+// double Text::lowerB(double startX, double startY) {
+
+// }
+
+double Text::normalA(double startX, double startY) {
+
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+    return 6 * this->scale;
+}
+
+double Text::fasterA(double startX, double startY) {
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+    return 6 * this->scale;
+}
+
+
+
+
+
+void Text::newCharPrints() {
+    double xPos = this->screenStartX + ((BOX_START_X + BOX_START_TEXT_POS_X) * this->xMult);
+    double yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
+    ofSetColor(0, 0, 0);
+    this->lowerA(xPos, yPos);
 }

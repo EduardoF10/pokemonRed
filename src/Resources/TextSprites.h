@@ -34,7 +34,7 @@ const int FIND_WHITESPACE_X = 187;
 const int FIND_WHITESPACE_Y = 15;
 
 const int NEXT_CHAR = '*';
-const int FIND_START_NEXT_X = 175;
+const int FIND_START_NEXT_X = 183;
 const int FIND_START_NEXT_Y = 35;
 const int NEXT_WIDTH = 8;
 const int NEXT_HEIGHT = 7;

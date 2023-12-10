@@ -17,7 +17,9 @@ void ofApp::setup(){
 }
 
 void ofApp::setTextBox() {
-    this->dummyTextBox = new  Text(DEFAULT_TEXT_SPEED, 0, "HELLO WORLD!MY NAME IS EDUARDO, I WILL BE YOUR HOST FOR POKEMON RED.DO YOU HAVE ANY QUESTIONS?");
+    std::string introText1 = "Hello world!My name is Eduardo, I will be your host for Pokemon Red.Do you have any questions?";
+    std::string introText2 = "abcdefabcdeabffcd.";
+    this->dummyTextBox = new  Text(DEFAULT_TEXT_SPEED, 0, introText1);
 }
 
 //--------------------------------------------------------------
@@ -38,8 +40,10 @@ void ofApp::draw(){
     this->drawScreen();
 
     if (showTextBox) {
-        this->dummyTextBox->render();
+        // this->dummyTextBox->render();
         // this->dummyTextBox->save();  // Too slow
+
+        this->dummyTextBox->newCharPrints();
     }
 
     // introMovie.draw(0, 0, 480, 320);
@@ -81,32 +85,6 @@ void ofApp::adjustGameScreen() {
     this->screenHeight = newHeight;
     this->screenStartX = (curWidth - newWidth) / 2.0;
     this->screenStartY = (curHeight - newHeight) / 2.0;
-
-    // double curWidth = static_cast<double>(ofGetWindowWidth());
-    // double curHeight = static_cast<double>(ofGetWindowHeight());
-    // double newHeight, newWidth;
-    
-    // if (curWidth / curHeight > 1.5) {
-    //     newWidth = curWidth;
-    //     newHeight = curWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-    //     if (newHeight > this->fullScreenHeight) {
-    //         newHeight = this->fullScreenHeight;
-    //         newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-    //     } 
-    // }
-    // else {
-    //     newHeight = curHeight;
-    //     newWidth = curHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-    //     if (newWidth > this->fullScreenWidth) {
-    //         newWidth = this->fullScreenWidth;
-    //         newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-    //     }
-    // }
-
-    // this->screenWidth = newWidth;
-    // this->screenHeight = newHeight;
-    // this->screenStartX = (curWidth - newWidth) / 2.0;
-    // this->screenStartY = (curHeight - newHeight) / 2.0;
 
 }
 
