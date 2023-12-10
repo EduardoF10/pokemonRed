@@ -3,6 +3,6 @@ bin/pokemonRed
 bin/pokemonRed_debug
 
 # Debug and Releases
-obj/linux64
+obj/linux64/
 
 

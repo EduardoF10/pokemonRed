@@ -40,8 +40,10 @@ void ofApp::draw(){
     this->drawScreen();
 
     if (showTextBox) {
-        this->dummyTextBox->render();
+        // this->dummyTextBox->render();
         // this->dummyTextBox->save();  // Too slow
+
+        this->dummyTextBox->newCharPrints();
     }
 
     // introMovie.draw(0, 0, 480, 320);

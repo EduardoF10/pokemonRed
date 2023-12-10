@@ -1,6 +1,10 @@
 #include "Text.h"
 
 Text::Text(int speed, int boxOption, std::string text) {
+    this->scale = 3;
+    this->r = 0;
+    this->g = 0;
+    this->b = 0;
     this->sentenceIndex = 0;
     this->lineIndex = 0;
     this->charIndex = 0;
@@ -250,4 +254,75 @@ int Text::getCharSpace(char prev) {
 
     return result;
 
+}
+
+
+void Text::horizontalStick(double startX, double startY, double length) {
+    ofDrawRectangle(startX, startY, length * this->scale, this->scale);
+}
+
+void Text::verticalStick(double startX, double startY, double length) {
+    ofDrawRectangle(startX, startY, this->scale, length * this->scale);
+}
+
+
+double Text::lowerA(double startX, double startY) {
+
+    // Record the start time
+    auto startTime = std::chrono::high_resolution_clock::now();
+
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+
+    // Record the end time
+    auto endTime = std::chrono::high_resolution_clock::now();
+
+    // Calculate the duration in microseconds
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+
+    // Print the execution time
+    // std::cout << "Execution time: " << duration << " microseconds" << std::endl;
+
+    this->execTimeCount += 1;
+    this->execTimeTotal += duration;
+    this-> execTimeAvg = this->execTimeTotal / this->execTimeCount;
+
+    // Print the execution time avg
+    std::cout << "Execution time Avg: " << this->execTimeAvg << " microseconds" << std::endl;
+
+    return 6 * this->scale;
+}
+
+// double Text::lowerB(double startX, double startY) {
+
+// }
+
+double Text::normalA(double startX, double startY) {
+
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+    return 6 * this->scale;
+}
+
+double Text::fasterA(double startX, double startY) {
+    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+    return 6 * this->scale;
+}
+
+
+
+
+
+void Text::newCharPrints() {
+    double xPos = this->screenStartX + ((BOX_START_X + BOX_START_TEXT_POS_X) * this->xMult);
+    double yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
+    ofSetColor(0, 0, 0);
+    this->lowerA(xPos, yPos);
 }
