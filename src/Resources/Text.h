@@ -31,10 +31,6 @@ private:
     double screenStartY;
 
     int scale;
-    
-    int r;
-    int g;
-    int b;
 
     int charWidth;  // Pixel width for each char
     int charHeight; // Pixel height for each char
@@ -98,8 +94,9 @@ public:
 
     void reset();
 
-    void horizontalStick(double startX, double startY, double length);
-    void verticalStick(double startX, double startY, double length);
+    void horizontalStick(double startX, double startY, double xDist, double yDist, double width);
+    void verticalStick(double startX, double startY, double xDist, double yDist, double length);
+    void rectangle(double startX, double startY, double xDist, double yDist, double width, double height);
 
 
     double lowerA(double startX, double startY);
@@ -109,13 +106,6 @@ public:
     double lowerE(double startX, double startY);
     double lowerF(double startX, double startY);
     double lowerG(double startX, double startY);
-    double lowerH(double startX, double startY);
-    double lowerI(double startX, double startY);
-    double lowerJ(double startX, double startY);
-    double lowerK(double startX, double startY);
-    double lowerL(double startX, double startY);
-    double lowerM(double startX, double startY);
-    double lowerN(double startX, double startY);
     double lowerO(double startX, double startY);
     double lowerP(double startX, double startY);
     double lowerQ(double startX, double startY);
@@ -156,8 +146,8 @@ public:
     double upperY(double startX, double startY);
     double upperZ(double startX, double startY);
 
-    double normalA(double startX, double startY);
-    double fasterA(double startX, double startY);
+    // double normalA(double startX, double startY);
+    // double fasterA(double startX, double startY);
 
 
     void newCharPrints();

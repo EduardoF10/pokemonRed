@@ -2,9 +2,6 @@
 
 Text::Text(int speed, int boxOption, std::string text) {
     this->scale = 3;
-    this->r = 0;
-    this->g = 0;
-    this->b = 0;
     this->sentenceIndex = 0;
     this->lineIndex = 0;
     this->charIndex = 0;
@@ -257,64 +254,521 @@ int Text::getCharSpace(char prev) {
 }
 
 
-void Text::horizontalStick(double startX, double startY, double length) {
-    ofDrawRectangle(startX, startY, length * this->scale, this->scale);
-}
-
-void Text::verticalStick(double startX, double startY, double length) {
-    ofDrawRectangle(startX, startY, this->scale, length * this->scale);
-}
-
-
-double Text::lowerA(double startX, double startY) {
-
-    // Record the start time
-    auto startTime = std::chrono::high_resolution_clock::now();
-
-    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
-    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
-
-    // Record the end time
-    auto endTime = std::chrono::high_resolution_clock::now();
-
-    // Calculate the duration in microseconds
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
-
-    // Print the execution time
-    // std::cout << "Execution time: " << duration << " microseconds" << std::endl;
-
-    this->execTimeCount += 1;
-    this->execTimeTotal += duration;
-    this-> execTimeAvg = this->execTimeTotal / this->execTimeCount;
-
-    // Print the execution time avg
-    std::cout << "Execution time Avg: " << this->execTimeAvg << " microseconds" << std::endl;
-
-    return 6 * this->scale;
-}
-
-// double Text::lowerB(double startX, double startY) {
-
+// void Text::horizontalStick(double startX, double startY, double xDist, double yDist, double width) {
+//     ofDrawRectangle(startX + (xDist * this->scale), startY + (yDist * this->scale), width * this->scale, this->scale);
 // }
 
-double Text::normalA(double startX, double startY) {
+// void Text::verticalStick(double startX, double startY, double xDist, double yDist, double length) {
+//     ofDrawRectangle(startX + (xDist * this->scale), startY + (yDist * this->scale), this->scale, length * this->scale);
+// }
 
-    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
-    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+void Text::rectangle(double startX, double startY, double xDist, double yDist, double width, double height) {
+    ofDrawRectangle(startX + (xDist * this->scale), startY + (yDist * this->scale), this->scale * width, this->scale * height);
+}
+
+
+
+double Text::upperA(double startX, double startY) {
+
+    // // Record the start time
+    // auto startTime = std::chrono::high_resolution_clock::now();
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 7);
+    rectangle(startX, startY, 4, 1, 1, 7);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 4, 3, 1);
+
+    ofSetColor(0, 0, 0);
+
+    // ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+    // ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+    // ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+    // ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+
+    // // Record the end time
+    // auto endTime = std::chrono::high_resolution_clock::now();
+
+    // // Calculate the duration in microseconds
+    // auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+
+    // // Print the execution time
+    // // std::cout << "Execution time: " << duration << " microseconds" << std::endl;
+
+    // this->execTimeCount += 1;
+    // this->execTimeTotal += duration;
+    // this-> execTimeAvg = this->execTimeTotal / this->execTimeCount;
+
+    // // Print the execution time avg
+    // std::cout << "Execution time Avg: " << this->execTimeAvg << " microseconds" << std::endl;
+
     return 6 * this->scale;
 }
 
-double Text::fasterA(double startX, double startY) {
-    ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
-    ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
-    ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+double Text::upperB(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 4, 1, 1, 2);
+    rectangle(startX, startY, 4, 4, 1, 3);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 3, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
     return 6 * this->scale;
+
 }
+
+double Text::upperC(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 6);
+    rectangle(startX, startY, 4, 1, 1, 1);
+    rectangle(startX, startY, 4, 6, 1, 1);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperD(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 4, 1, 1, 6);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperE(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+
+    rectangle(startX, startY, 1, 0, 4, 1);
+    rectangle(startX, startY, 1, 3, 3, 1);
+    rectangle(startX, startY, 1, 7, 4, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperF(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+
+    rectangle(startX, startY, 1, 0, 4, 1);
+    rectangle(startX, startY, 1, 3, 3, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperG(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 6);
+    rectangle(startX, startY, 4, 1, 1, 2);
+    rectangle(startX, startY, 4, 4, 1, 3);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+    rectangle(startX, startY, 3, 4, 1, 1);
+
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperH(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 4, 0, 1, 8);
+
+    rectangle(startX, startY, 1, 3, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperI(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 2, 1, 1, 6);
+
+    rectangle(startX, startY, 0, 0, 5, 1);
+    rectangle(startX, startY, 0, 7, 5, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperJ(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 6, 1, 1);
+    rectangle(startX, startY, 4, 0, 1, 7);
+
+    rectangle(startX, startY, 1, 7, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperK(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 1, 3, 1, 2);
+
+    rectangle(startX, startY, 2, 2, 2, 1);
+    rectangle(startX, startY, 2, 5, 1, 1);
+    rectangle(startX, startY, 3, 1, 1, 1);
+    rectangle(startX, startY, 3, 6, 1, 1);
+    rectangle(startX, startY, 4, 0, 1, 1);
+    rectangle(startX, startY, 4, 7, 1, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperL(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+
+    rectangle(startX, startY, 1, 7, 4, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperM(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 1, 1, 1, 2);
+    rectangle(startX, startY, 2, 3, 1, 2);
+    rectangle(startX, startY, 3, 1, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 8);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperN(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 1, 1, 1, 2);
+    rectangle(startX, startY, 2, 3, 1, 1);
+    rectangle(startX, startY, 3, 4, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 8);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperO(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 6);
+    rectangle(startX, startY, 4, 1, 1, 6);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperP(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 4, 1, 1, 3);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 4, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperQ(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 6);
+    rectangle(startX, startY, 4, 1, 1, 6);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 5, 2, 1);
+    rectangle(startX, startY, 3, 6, 3, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+    rectangle(startX, startY, 5, 7, 1, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperR(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 4, 1, 1, 3);
+    rectangle(startX, startY, 4, 6, 1, 2);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 4, 3, 1);
+    rectangle(startX, startY, 3, 5, 1, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperS(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 1, 1, 2);
+    rectangle(startX, startY, 0, 6, 1, 1);
+    rectangle(startX, startY, 4, 1, 1, 1);
+    rectangle(startX, startY, 4, 5, 1, 2);
+
+    rectangle(startX, startY, 1, 0, 3, 1);
+    rectangle(startX, startY, 1, 3, 2, 1);
+    rectangle(startX, startY, 3, 4, 1, 1);
+    rectangle(startX, startY, 1, 7, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperT(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 2, 1, 1, 7);
+
+    rectangle(startX, startY, 0, 0, 5, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperU(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 7);
+    rectangle(startX, startY, 4, 0, 1, 7);
+
+    rectangle(startX, startY, 1, 7, 3, 1);
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperV(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 4);
+    rectangle(startX, startY, 1, 4, 1, 2);
+    rectangle(startX, startY, 2, 6, 1, 2);
+    rectangle(startX, startY, 3, 4, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 4);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperV(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 4);
+    rectangle(startX, startY, 1, 4, 1, 2);
+    rectangle(startX, startY, 2, 6, 1, 2);
+    rectangle(startX, startY, 3, 4, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 4);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperW(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 8);
+    rectangle(startX, startY, 1, 5, 1, 2);
+    rectangle(startX, startY, 2, 2, 1, 3);
+    rectangle(startX, startY, 3, 5, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 8);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperX(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 2);
+    rectangle(startX, startY, 0, 6, 1, 2);
+    rectangle(startX, startY, 1, 2, 1, 1);
+    rectangle(startX, startY, 1, 5, 1, 1);
+    rectangle(startX, startY, 2, 3, 1, 2);
+    rectangle(startX, startY, 3, 2, 1, 1);
+    rectangle(startX, startY, 3, 5, 1, 1);
+    rectangle(startX, startY, 4, 0, 1, 2);
+    rectangle(startX, startY, 4, 6, 1, 2);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperY(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 0, 1, 2);
+    rectangle(startX, startY, 1, 2, 1, 2);
+    rectangle(startX, startY, 2, 4, 1, 4);
+    rectangle(startX, startY, 3, 2, 1, 2);
+    rectangle(startX, startY, 4, 0, 1, 2);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+double Text::upperZ(double startX, double startY) {
+
+    ofSetColor(80, 80, 80);
+
+    rectangle(startX, startY, 0, 6, 1, 2);
+    rectangle(startX, startY, 1, 5, 1, 1);
+    rectangle(startX, startY, 2, 3, 1, 2);
+    rectangle(startX, startY, 3, 2, 1, 1);
+    rectangle(startX, startY, 4, 0, 1, 2);
+
+    rectangle(startX, startY, 0, 0, 4, 1);
+    rectangle(startX, startY, 1, 7, 4, 1);
+    
+    
+    ofSetColor(0, 0, 0);
+
+    return 6 * this->scale;
+
+}
+
+
+
+// double Text::normalA(double startX, double startY) {
+
+//     ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+//     ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+//     ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+//     ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+//     return 6 * this->scale;
+// }
+
+// double Text::fasterA(double startX, double startY) {
+//     ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
+//     ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
+//     ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
+//     ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
+//     return 6 * this->scale;
+// }
 
 
 
@@ -324,5 +778,13 @@ void Text::newCharPrints() {
     double xPos = this->screenStartX + ((BOX_START_X + BOX_START_TEXT_POS_X) * this->xMult);
     double yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
     ofSetColor(0, 0, 0);
-    this->lowerA(xPos, yPos);
+
+
+
+
+    this->upperA(xPos, yPos);
+    // this->upperB(xPos, yPos);
+
+
+
 }
