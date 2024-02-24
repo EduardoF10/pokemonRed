@@ -97,6 +97,12 @@ public:
     void horizontalStick(double startX, double startY, double xDist, double yDist, double width);
     void verticalStick(double startX, double startY, double xDist, double yDist, double length);
     void rectangle(double startX, double startY, double xDist, double yDist, double width, double height);
+    void doubleRect(double startX, double startY, double xDist, double yDist, double width, double height);
+
+    // double timeChecker(double (Text::*)(double startX, double startY), double xPos, double yPos);
+    // template <typename Func>
+    // double timeChecker(Func func, double xPos, double yPos);
+
 
 
     double lowerA(double startX, double startY);
@@ -106,6 +112,13 @@ public:
     double lowerE(double startX, double startY);
     double lowerF(double startX, double startY);
     double lowerG(double startX, double startY);
+    double lowerH(double startX, double startY);
+    double lowerI(double startX, double startY);
+    double lowerJ(double startX, double startY);
+    double lowerK(double startX, double startY);
+    double lowerL(double startX, double startY);
+    double lowerM(double startX, double startY);
+    double lowerN(double startX, double startY);
     double lowerO(double startX, double startY);
     double lowerP(double startX, double startY);
     double lowerQ(double startX, double startY);
