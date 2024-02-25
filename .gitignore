@@ -5,4 +5,9 @@ bin/pokemonRed_debug
 # Debug and Releases
 obj/linux64/
 
+# MAC OSX
+obj/osx/
+bin/pokemonRed.app/
+.vscode
+openFrameworks-Info.plist
 

@@ -65,20 +65,24 @@ void ofApp::adjustGameScreen() {
     double newHeight, newWidth;
     
     if (curWidth / curHeight > 1.5) {
-        newWidth = curWidth;
-        newHeight = curWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-        if (newHeight > curHeight) {
-            newHeight = curHeight;
-            newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-        } 
+        // newWidth = curWidth;
+        // newHeight = curWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
+        // if (newHeight > curHeight) {
+        //     newHeight = curHeight;
+        //     newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
+        // } 
+        newHeight = curHeight;
+        newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
     }
     else {
-        newHeight = curHeight;
-        newWidth = curHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-        if (newWidth > curWidth) {
-            newWidth = curWidth;
-            newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-        }
+        // newHeight = curHeight;
+        // newWidth = curHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
+        // if (newWidth > curWidth) {
+        //     newWidth = curWidth;
+        //     newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
+        // }
+        newWidth = curWidth;
+        newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
     }
 
     this->screenWidth = newWidth;
