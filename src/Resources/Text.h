@@ -104,6 +104,11 @@ public:
     // double timeChecker(Func func, double xPos, double yPos);
 
 
+    // Colors
+    void setTextColor1();
+    void setTextColor2();
+
+
 
     double lowerA(double startX, double startY);
     double lowerB(double startX, double startY);
