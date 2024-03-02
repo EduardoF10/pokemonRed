@@ -140,7 +140,7 @@ void Text::printAllChars() {
     int xPos = startX;
     int yPos = this->screenStartY + ((BOX_START_Y + BOX_START_TEXT_POS_Y) * this->yMult);
     char curChar;
-    char prev = ' ';
+    // char prev = ' ';
     int charSpace;
 
     // If 2 liner
@@ -156,7 +156,7 @@ void Text::printAllChars() {
         }
 
         // Second line print
-        prev = ' ';
+        // prev = ' ';
         xPos = startX;
         yPos = this->screenStartY + ((BOX_START_Y + BOX_NEXT_LINE_Y) * this->yMult);
         int charCounter = 0;
@@ -286,52 +286,24 @@ void Text::setTextColor1() {
 
 double Text::upperA(double startX, double startY) {
 
-    // // Record the start time
-    // auto startTime = std::chrono::high_resolution_clock::now();
-
     doubleRect(startX, startY, 0, 1, 1, 7);
     doubleRect(startX, startY, 1, 0, 3, 1);
     doubleRect(startX, startY, 1, 4, 3, 1);
     doubleRect(startX, startY, 4, 1, 1, 7);
-
-    // ofDrawRectangle(startX, startY, this->scale, 7 * this->scale);
-    // ofDrawRectangle(startX + this->scale, startY - this->scale, 3 * this->scale, this->scale);
-    // ofDrawRectangle(startX + this->scale, startY + (3 * this->scale), 3 * this->scale, this->scale);
-    // ofDrawRectangle(startX + (4 * this->scale), startY, this->scale, 7 * this->scale);
-
-    // // Record the end time
-    // auto endTime = std::chrono::high_resolution_clock::now();
-
-    // // Calculate the duration in microseconds
-    // auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
-
-    // // Print the execution time
-    // // std::cout << "Execution time: " << duration << " microseconds" << std::endl;
-
-    // this->execTimeCount += 1;
-    // this->execTimeTotal += duration;
-    // this-> execTimeAvg = this->execTimeTotal / this->execTimeCount;
-
-    // // Print the execution time avg
-    // std::cout << "Execution time Avg: " << this->execTimeAvg << " microseconds" << std::endl;
 
     return 6 * this->scale;
 }
 
 double Text::upperB(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 4, 1, 1, 2);
-    rectangle(startX, startY, 4, 4, 1, 3);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 3, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 2);
+    doubleRect(startX, startY, 4, 4, 1, 3);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 5, 3, 1, 1);
 
     return 6 * this->scale;
 
@@ -339,17 +311,11 @@ double Text::upperB(double startX, double startY) {
 
 double Text::upperC(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 1, 1, 6);
-    rectangle(startX, startY, 4, 1, 1, 1);
-    rectangle(startX, startY, 4, 6, 1, 1);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 1, 1, 6);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 1);
+    doubleRect(startX, startY, 4, 6, 1, 1);
 
     return 6 * this->scale;
 
@@ -357,16 +323,10 @@ double Text::upperC(double startX, double startY) {
 
 double Text::upperD(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 4, 1, 1, 6);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 6);
 
     return 6 * this->scale;
 
@@ -374,16 +334,10 @@ double Text::upperD(double startX, double startY) {
 
 double Text::upperE(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-
-    rectangle(startX, startY, 1, 0, 4, 1);
-    rectangle(startX, startY, 1, 3, 3, 1);
-    rectangle(startX, startY, 1, 7, 4, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 4, 1);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 7, 4, 1);
 
     return 6 * this->scale;
 
@@ -391,15 +345,9 @@ double Text::upperE(double startX, double startY) {
 
 double Text::upperF(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-
-    rectangle(startX, startY, 1, 0, 4, 1);
-    rectangle(startX, startY, 1, 3, 3, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 4, 1);
+    doubleRect(startX, startY, 1, 3, 3, 1);
 
     return 6 * this->scale;
 
@@ -407,18 +355,13 @@ double Text::upperF(double startX, double startY) {
 
 double Text::upperG(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 1, 1, 6);
-    rectangle(startX, startY, 4, 1, 1, 2);
-    rectangle(startX, startY, 4, 4, 1, 3);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-    rectangle(startX, startY, 3, 4, 1, 1);
-
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 1, 1, 6);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 3, 4, 1, 1);
+    doubleRect(startX, startY, 4, 1, 1, 6);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 3, 2, 1);
 
     return 6 * this->scale;
 
@@ -426,14 +369,9 @@ double Text::upperG(double startX, double startY) {
 
 double Text::upperH(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 4, 0, 1, 8);
-
-    rectangle(startX, startY, 1, 3, 3, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 4, 0, 1, 8);
 
     return 6 * this->scale;
 
@@ -441,14 +379,9 @@ double Text::upperH(double startX, double startY) {
 
 double Text::upperI(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 2, 1, 1, 6);
-
-    rectangle(startX, startY, 0, 0, 5, 1);
-    rectangle(startX, startY, 0, 7, 5, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 5, 1);
+    doubleRect(startX, startY, 2, 1, 1, 6);
+    doubleRect(startX, startY, 0, 7, 5, 1);
 
     return 6 * this->scale;
 
@@ -456,14 +389,9 @@ double Text::upperI(double startX, double startY) {
 
 double Text::upperJ(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 6, 1, 1);
-    rectangle(startX, startY, 4, 0, 1, 7);
-
-    rectangle(startX, startY, 1, 7, 3, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 6, 1, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 0, 1, 7);
 
     return 6 * this->scale;
 
@@ -471,19 +399,20 @@ double Text::upperJ(double startX, double startY) {
 
 double Text::upperK(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 1, 3, 1, 2);
-
-    rectangle(startX, startY, 2, 2, 2, 1);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 3, 1, 2);
+    doubleRect(startX, startY, 4, 7, 1, 1);
+    rectangle(startX, startY, 2, 2, 1, 1);
     rectangle(startX, startY, 2, 5, 1, 1);
     rectangle(startX, startY, 3, 1, 1, 1);
     rectangle(startX, startY, 3, 6, 1, 1);
     rectangle(startX, startY, 4, 0, 1, 1);
-    rectangle(startX, startY, 4, 7, 1, 1);
-    
-    ofSetColor(0, 0, 0);
+    setTextColor2();
+    rectangle(startX, startY, 3, 2, 1, 1);
+    rectangle(startX, startY, 3, 5, 1, 1);
+    rectangle(startX, startY, 4, 1, 1, 1);
+    rectangle(startX, startY, 4, 6, 1, 1);
+    rectangle(startX, startY, 5, 0, 1, 1);
 
     return 6 * this->scale;
 
@@ -491,13 +420,8 @@ double Text::upperK(double startX, double startY) {
 
 double Text::upperL(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-
-    rectangle(startX, startY, 1, 7, 4, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 7, 4, 1);
 
     return 6 * this->scale;
 
@@ -505,15 +429,11 @@ double Text::upperL(double startX, double startY) {
 
 double Text::upperM(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 1, 1, 1, 2);
-    rectangle(startX, startY, 2, 3, 1, 2);
-    rectangle(startX, startY, 3, 1, 1, 2);
-    rectangle(startX, startY, 4, 0, 1, 8);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 1, 1, 2);
+    doubleRect(startX, startY, 2, 3, 1, 2);
+    doubleRect(startX, startY, 3, 1, 1, 2);
+    doubleRect(startX, startY, 4, 0, 1, 8);
 
     return 6 * this->scale;
 
@@ -521,15 +441,11 @@ double Text::upperM(double startX, double startY) {
 
 double Text::upperN(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 1, 1, 1, 2);
-    rectangle(startX, startY, 2, 3, 1, 1);
-    rectangle(startX, startY, 3, 4, 1, 2);
-    rectangle(startX, startY, 4, 0, 1, 8);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 1, 1, 2);
+    doubleRect(startX, startY, 2, 3, 1, 1);
+    doubleRect(startX, startY, 3, 4, 1, 2);
+    doubleRect(startX, startY, 4, 0, 1, 8);
 
     return 6 * this->scale;
 
@@ -537,15 +453,10 @@ double Text::upperN(double startX, double startY) {
 
 double Text::upperO(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 1, 1, 6);
-    rectangle(startX, startY, 4, 1, 1, 6);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 1, 1, 6);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 6);
 
     return 6 * this->scale;
 
@@ -553,15 +464,10 @@ double Text::upperO(double startX, double startY) {
 
 double Text::upperP(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 4, 1, 1, 3);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 4, 3, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 4, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 3);
 
     return 6 * this->scale;
 
@@ -569,18 +475,16 @@ double Text::upperP(double startX, double startY) {
 
 double Text::upperQ(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 1, 1, 6);
-    rectangle(startX, startY, 4, 1, 1, 6);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 5, 2, 1);
-    rectangle(startX, startY, 3, 6, 3, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-    rectangle(startX, startY, 5, 7, 1, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 1, 1, 6);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 5, 2, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 6);
+    doubleRect(startX, startY, 5, 7, 1, 1);
+    rectangle(startX, startY, 3, 6, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 8, 1, 1);
+    rectangle(startX, startY, 6, 7, 1, 2);
 
     return 6 * this->scale;
 
@@ -588,17 +492,12 @@ double Text::upperQ(double startX, double startY) {
 
 double Text::upperR(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 4, 1, 1, 3);
-    rectangle(startX, startY, 4, 6, 1, 2);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 4, 3, 1);
-    rectangle(startX, startY, 3, 5, 1, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 1, 4, 2, 1);
+    doubleRect(startX, startY, 4, 1, 1, 3);
+    doubleRect(startX, startY, 3, 4, 1, 2);
+    doubleRect(startX, startY, 4, 6, 1, 2);
 
     return 6 * this->scale;
 
@@ -606,19 +505,17 @@ double Text::upperR(double startX, double startY) {
 
 double Text::upperS(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 1, 1, 2);
-    rectangle(startX, startY, 0, 6, 1, 1);
-    rectangle(startX, startY, 4, 1, 1, 1);
-    rectangle(startX, startY, 4, 5, 1, 2);
-
-    rectangle(startX, startY, 1, 0, 3, 1);
-    rectangle(startX, startY, 1, 3, 2, 1);
-    rectangle(startX, startY, 3, 4, 1, 1);
-    rectangle(startX, startY, 1, 7, 3, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 4, 1, 1, 1);
+    doubleRect(startX, startY, 0, 1, 1, 2);
+    doubleRect(startX, startY, 1, 3, 2, 1);
+    doubleRect(startX, startY, 3, 4, 1, 1);
+    doubleRect(startX, startY, 4, 5, 1, 2);
+    doubleRect(startX, startY, 0, 6, 1, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 2, 2, 1);
+    rectangle(startX, startY, 3, 5, 1, 1);
 
     return 6 * this->scale;
 
@@ -626,13 +523,8 @@ double Text::upperS(double startX, double startY) {
 
 double Text::upperT(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 2, 1, 1, 7);
-
-    rectangle(startX, startY, 0, 0, 5, 1);
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 5, 1);
+    doubleRect(startX, startY, 2, 1, 1, 7);
 
     return 6 * this->scale;
 
@@ -640,48 +532,33 @@ double Text::upperT(double startX, double startY) {
 
 double Text::upperU(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 7);
-    rectangle(startX, startY, 4, 0, 1, 7);
-
-    rectangle(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 0, 0, 1, 7);
+    doubleRect(startX, startY, 4, 0, 1, 7);
+    doubleRect(startX, startY, 1, 7, 3, 1);
     
-    ofSetColor(0, 0, 0);
-
     return 6 * this->scale;
 
 }
 
 double Text::upperV(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 4);
-    rectangle(startX, startY, 1, 4, 1, 2);
-    rectangle(startX, startY, 2, 6, 1, 2);
-    rectangle(startX, startY, 3, 4, 1, 2);
-    rectangle(startX, startY, 4, 0, 1, 4);
+    doubleRect(startX, startY, 0, 0, 1, 4);
+    doubleRect(startX, startY, 1, 4, 1, 2);
+    doubleRect(startX, startY, 2, 6, 1, 2);
+    doubleRect(startX, startY, 3, 4, 1, 2);
+    doubleRect(startX, startY, 4, 0, 1, 4);
     
-    
-    ofSetColor(0, 0, 0);
-
     return 6 * this->scale;
 
 }
 
 double Text::upperW(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 8);
-    rectangle(startX, startY, 1, 5, 1, 2);
-    rectangle(startX, startY, 2, 2, 1, 3);
-    rectangle(startX, startY, 3, 5, 1, 2);
-    rectangle(startX, startY, 4, 0, 1, 8);
-    
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 8);
+    doubleRect(startX, startY, 1, 5, 1, 2);
+    doubleRect(startX, startY, 2, 2, 1, 3);
+    doubleRect(startX, startY, 3, 5, 1, 2);
+    doubleRect(startX, startY, 4, 0, 1, 8);
 
     return 6 * this->scale;
 
@@ -689,20 +566,17 @@ double Text::upperW(double startX, double startY) {
 
 double Text::upperX(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 2);
-    rectangle(startX, startY, 0, 6, 1, 2);
-    rectangle(startX, startY, 1, 2, 1, 1);
-    rectangle(startX, startY, 1, 5, 1, 1);
-    rectangle(startX, startY, 2, 3, 1, 2);
-    rectangle(startX, startY, 3, 2, 1, 1);
-    rectangle(startX, startY, 3, 5, 1, 1);
-    rectangle(startX, startY, 4, 0, 1, 2);
-    rectangle(startX, startY, 4, 6, 1, 2);
-    
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 2);
+    doubleRect(startX, startY, 0, 6, 1, 2);
+    doubleRect(startX, startY, 1, 2, 1, 1);
+    doubleRect(startX, startY, 1, 5, 1, 1);
+    doubleRect(startX, startY, 2, 3, 1, 2);
+    doubleRect(startX, startY, 3, 2, 1, 1);
+    doubleRect(startX, startY, 3, 5, 1, 1);
+    doubleRect(startX, startY, 4, 0, 1, 2);
+    doubleRect(startX, startY, 4, 6, 1, 2);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 2, 6, 1, 1);
 
     return 6 * this->scale;
 
@@ -710,36 +584,25 @@ double Text::upperX(double startX, double startY) {
 
 double Text::upperY(double startX, double startY) {
 
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 0, 1, 2);
-    rectangle(startX, startY, 1, 2, 1, 2);
-    rectangle(startX, startY, 2, 4, 1, 4);
-    rectangle(startX, startY, 3, 2, 1, 2);
-    rectangle(startX, startY, 4, 0, 1, 2);
-    
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 1, 2);
+    doubleRect(startX, startY, 1, 2, 1, 2);
+    doubleRect(startX, startY, 2, 4, 1, 4);
+    doubleRect(startX, startY, 3, 2, 1, 2);
+    doubleRect(startX, startY, 4, 0, 1, 2);
 
     return 6 * this->scale;
 
 }
 
 double Text::upperZ(double startX, double startY) {
-
-    ofSetColor(80, 80, 80);
-
-    rectangle(startX, startY, 0, 6, 1, 2);
-    rectangle(startX, startY, 1, 5, 1, 1);
-    rectangle(startX, startY, 2, 3, 1, 2);
-    rectangle(startX, startY, 3, 2, 1, 1);
-    rectangle(startX, startY, 4, 0, 1, 2);
-
-    rectangle(startX, startY, 0, 0, 4, 1);
-    rectangle(startX, startY, 1, 7, 4, 1);
     
-    
-    ofSetColor(0, 0, 0);
+    doubleRect(startX, startY, 0, 0, 4, 1);
+    doubleRect(startX, startY, 4, 0, 1, 2);
+    doubleRect(startX, startY, 0, 6, 1, 2);
+    doubleRect(startX, startY, 1, 5, 1, 1);
+    doubleRect(startX, startY, 2, 3, 1, 2);
+    doubleRect(startX, startY, 3, 2, 1, 1);
+    doubleRect(startX, startY, 1, 7, 4, 1);
 
     return 6 * this->scale;
 
@@ -1093,6 +956,33 @@ void Text::newCharPrints() {
 
     // this->upperA(xPos, yPos);
     // this->upperB(xPos, yPos);
+    // this->upperC(xPos, yPos);
+    // this->upperD(xPos, yPos);
+    // this->upperE(xPos, yPos);
+    // this->upperF(xPos, yPos);
+    // this->upperG(xPos, yPos);
+    // this->upperH(xPos, yPos);
+    // this->upperI(xPos, yPos);
+    // this->upperJ(xPos, yPos);
+    // this->upperK(xPos, yPos);
+    // this->upperL(xPos, yPos);
+    // this->upperM(xPos, yPos);
+    // this->upperN(xPos, yPos);
+    // this->upperO(xPos, yPos);
+    // this->upperP(xPos, yPos);
+    // this->upperQ(xPos, yPos);
+    // this->upperR(xPos, yPos);
+    // this->upperS(xPos, yPos);
+    // this->upperT(xPos, yPos);
+    // this->upperU(xPos, yPos);
+    // this->upperV(xPos, yPos);
+    // this->upperW(xPos, yPos);
+    // this->upperX(xPos + 100, yPos);
+    // this->upperY(xPos, yPos);
+    // this->upperZ(xPos, yPos);
+
+
+
     // this->lowerA(xPos, yPos);
     // this->lowerB(xPos, yPos);
     // this->lowerC(xPos, yPos);
