@@ -164,8 +164,48 @@ public:
     double upperY(double startX, double startY);
     double upperZ(double startX, double startY);
 
-    // double normalA(double startX, double startY);
-    // double fasterA(double startX, double startY);
+    double number0(double startX, double startY);
+    double number1(double startX, double startY);
+    double number2(double startX, double startY);
+    double number3(double startX, double startY);
+    double number4(double startX, double startY);
+    double number5(double startX, double startY);
+    double number6(double startX, double startY);
+    double number7(double startX, double startY);
+    double number8(double startX, double startY);
+    double number9(double startX, double startY);
+
+    double whitespace(double starX, double startY);
+    double exclamationMark(double startX, double startY);
+    double questionMark(double startX, double startY);
+    double periodMark(double startX, double startY);
+    double dashMark(double startX, double startY);
+    double midPointMark(double startX, double startY);
+    double threePoints(double startX, double startY);
+    double leftQuotes(double startX, double startY);
+    double rightQuotes(double startX, double startY);
+    double leftApostrophe(double startX, double startY);
+    double rightApostrophe(double startX, double startY);
+    double maleSymbol(double startX, double startY);
+    double femaleSymbol(double startX, double startY);
+    double genderlessSymbol(double startX, double startY);
+    double commaMark(double startX, double startY);
+    double multiplySymbol(double startX, double startY);
+    double divisionSymbol(double startX, double startY);
+    double colonMark(double startX, double startY);
+    double specialE(double startX, double startY);
+    double ampersandSymbol(double startX, double startY);
+    double additionSymbol(double startX, double startY);
+    double levelSymbol(double startX, double startY);
+    double equalSign(double startX, double startY);
+    double semiColonMark(double startX, double startY);
+    double percentageSymbol(double startX, double startY);
+    double upArrow(double startX, double startY);
+    double downArrow(double startX, double startY);
+    double leftArrow(double startX, double startY);
+    double rightArrow(double startX, double startY);
+    double nextLineSymbol(double startX, double startY);
+
 
 
     void newCharPrints();
