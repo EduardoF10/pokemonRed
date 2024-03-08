@@ -267,10 +267,13 @@ void Text::rectangle(double startX, double startY, double xDist, double yDist, d
 }
 
 void Text::doubleRect(double startX, double startY, double xDist, double yDist, double width, double height) {
+    // Shadow
     ofSetColor(208, 208, 200);
-    ofDrawRectangle(startX + (xDist * this->xMult), startY + (yDist * this->yMult), this->xMult * (width + 1), this->yMult * (height + 1));
+    rectangle(startX, startY, xDist + width, yDist, 1, height + 1);
+    rectangle(startX, startY, xDist, yDist + height, width, 1);
+    // Normal
     ofSetColor(77, 77, 77);
-    ofDrawRectangle(startX + (xDist * this->xMult), startY + (yDist * this->yMult), this->xMult * width, this->yMult * height);
+    rectangle(startX, startY, xDist, yDist, width, height);
 }
 
 void Text::setTextColor2() {
@@ -283,640 +286,915 @@ void Text::setTextColor1() {
 
 
 
+// UPPER LETTERS
 
 double Text::upperA(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 1, 1, 7);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 4, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 7);
-
+    doubleRect(startX, startY, 0, 4, 1, 7);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 7);
     return 6 * this->scale;
 }
 
 double Text::upperB(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 3, 1);
+    doubleRect(startX, startY, 0, 3, 1, 8);
     doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 2);
-    doubleRect(startX, startY, 4, 4, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 2);
+    doubleRect(startX, startY, 4, 7, 1, 3);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 5, 3, 1, 1);
-
+    rectangle(startX, startY, 5, 6, 1, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperC(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 1, 1, 6);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 1);
-    doubleRect(startX, startY, 4, 6, 1, 1);
-
+    doubleRect(startX, startY, 0, 4, 1, 6);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 1);
+    doubleRect(startX, startY, 4, 9, 1, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperD(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 6);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 6);
     return 6 * this->scale;
-
 }
 
 double Text::upperE(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 4, 1);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 4, 1);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 3, 4, 1);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 4, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperF(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 4, 1);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 3, 4, 1);
+    doubleRect(startX, startY, 1, 6, 3, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperG(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 1, 1, 6);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 3, 4, 1, 1);
-    doubleRect(startX, startY, 4, 1, 1, 6);
+    doubleRect(startX, startY, 0, 4, 1, 6);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 3, 7, 1, 1);
+    doubleRect(startX, startY, 4, 4, 1, 6);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 4, 3, 2, 1);
-
+    rectangle(startX, startY, 4, 6, 2, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperH(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 4, 0, 1, 8);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 8);
     return 6 * this->scale;
-
 }
 
 double Text::upperI(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 5, 1);
-    doubleRect(startX, startY, 2, 1, 1, 6);
-    doubleRect(startX, startY, 0, 7, 5, 1);
-
+    doubleRect(startX, startY, 0, 3, 5, 1);
+    doubleRect(startX, startY, 2, 4, 1, 6);
+    doubleRect(startX, startY, 0, 10, 5, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperJ(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 6, 1, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 0, 1, 7);
-
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 7);
     return 6 * this->scale;
-
 }
 
 double Text::upperK(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 3, 1, 2);
-    doubleRect(startX, startY, 4, 7, 1, 1);
-    rectangle(startX, startY, 2, 2, 1, 1);
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 6, 1, 2);
+    doubleRect(startX, startY, 4, 10, 1, 1);
     rectangle(startX, startY, 2, 5, 1, 1);
-    rectangle(startX, startY, 3, 1, 1, 1);
-    rectangle(startX, startY, 3, 6, 1, 1);
-    rectangle(startX, startY, 4, 0, 1, 1);
+    rectangle(startX, startY, 2, 8, 1, 1);
+    rectangle(startX, startY, 3, 4, 1, 1);
+    rectangle(startX, startY, 3, 9, 1, 1);
+    rectangle(startX, startY, 4, 3, 1, 1);
     setTextColor2();
-    rectangle(startX, startY, 3, 2, 1, 1);
     rectangle(startX, startY, 3, 5, 1, 1);
-    rectangle(startX, startY, 4, 1, 1, 1);
-    rectangle(startX, startY, 4, 6, 1, 1);
-    rectangle(startX, startY, 5, 0, 1, 1);
-
+    rectangle(startX, startY, 3, 8, 1, 1);
+    rectangle(startX, startY, 4, 4, 1, 1);
+    rectangle(startX, startY, 4, 9, 1, 1);
+    rectangle(startX, startY, 5, 3, 1, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperL(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 7, 4, 1);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 10, 4, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperM(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 1, 1, 2);
-    doubleRect(startX, startY, 2, 3, 1, 2);
-    doubleRect(startX, startY, 3, 1, 1, 2);
-    doubleRect(startX, startY, 4, 0, 1, 8);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperN(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 1, 1, 2);
-    doubleRect(startX, startY, 2, 3, 1, 1);
-    doubleRect(startX, startY, 3, 4, 1, 2);
-    doubleRect(startX, startY, 4, 0, 1, 8);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperO(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 1, 1, 6);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 6);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperP(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 4, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 3);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperQ(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 1, 1, 6);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 5, 2, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 6);
-    doubleRect(startX, startY, 5, 7, 1, 1);
-    rectangle(startX, startY, 3, 6, 1, 1);
-    ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 4, 8, 1, 1);
-    rectangle(startX, startY, 6, 7, 1, 2);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperR(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 1, 4, 2, 1);
-    doubleRect(startX, startY, 4, 1, 1, 3);
-    doubleRect(startX, startY, 3, 4, 1, 2);
-    doubleRect(startX, startY, 4, 6, 1, 2);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperS(double startX, double startY) {
-
-    doubleRect(startX, startY, 1, 0, 3, 1);
-    doubleRect(startX, startY, 4, 1, 1, 1);
-    doubleRect(startX, startY, 0, 1, 1, 2);
-    doubleRect(startX, startY, 1, 3, 2, 1);
-    doubleRect(startX, startY, 3, 4, 1, 1);
-    doubleRect(startX, startY, 4, 5, 1, 2);
-    doubleRect(startX, startY, 0, 6, 1, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 4, 2, 2, 1);
-    rectangle(startX, startY, 3, 5, 1, 1);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperT(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 5, 1);
-    doubleRect(startX, startY, 2, 1, 1, 7);
-
-    return 6 * this->scale;
-
-}
-
-double Text::upperU(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 7);
-    doubleRect(startX, startY, 4, 0, 1, 7);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    
-    return 6 * this->scale;
-
-}
-
-double Text::upperV(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 4);
+    doubleRect(startX, startY, 0, 3, 1, 8);
     doubleRect(startX, startY, 1, 4, 1, 2);
     doubleRect(startX, startY, 2, 6, 1, 2);
     doubleRect(startX, startY, 3, 4, 1, 2);
-    doubleRect(startX, startY, 4, 0, 1, 4);
-    
+    doubleRect(startX, startY, 4, 3, 1, 8);
     return 6 * this->scale;
+}
 
+double Text::upperN(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 4, 1, 2);
+    doubleRect(startX, startY, 2, 6, 1, 1);
+    doubleRect(startX, startY, 3, 7, 1, 2);
+    doubleRect(startX, startY, 4, 3, 1, 8);
+    return 6 * this->scale;
+}
+
+double Text::upperO(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 1, 6);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 6);
+    return 6 * this->scale;
+}
+
+double Text::upperP(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 7, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 3);
+    return 6 * this->scale;
+}
+
+double Text::upperQ(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 1, 6);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 8, 2, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 6);
+    doubleRect(startX, startY, 5, 10, 1, 1);
+    rectangle(startX, startY, 3, 9, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 11, 1, 1);
+    rectangle(startX, startY, 6, 10, 1, 2);
+    return 6 * this->scale;
+}
+
+double Text::upperR(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 1, 7, 2, 1);
+    doubleRect(startX, startY, 4, 4, 1, 3);
+    doubleRect(startX, startY, 3, 7, 1, 2);
+    doubleRect(startX, startY, 4, 9, 1, 2);
+    return 6 * this->scale;
+}
+
+double Text::upperS(double startX, double startY) {
+    doubleRect(startX, startY, 1, 3, 3, 1);
+    doubleRect(startX, startY, 4, 4, 1, 1);
+    doubleRect(startX, startY, 0, 4, 1, 2);
+    doubleRect(startX, startY, 1, 6, 2, 1);
+    doubleRect(startX, startY, 3, 7, 1, 1);
+    doubleRect(startX, startY, 4, 8, 1, 2);
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 5, 2, 1);
+    rectangle(startX, startY, 3, 8, 1, 1);
+    return 6 * this->scale;
+}
+
+double Text::upperT(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 5, 1);
+    doubleRect(startX, startY, 2, 4, 1, 7);
+    return 6 * this->scale;
+}
+
+double Text::upperU(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 7);
+    doubleRect(startX, startY, 4, 3, 1, 7);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    return 6 * this->scale;
+}
+
+double Text::upperV(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 4);
+    doubleRect(startX, startY, 1, 7, 1, 2);
+    doubleRect(startX, startY, 2, 9, 1, 2);
+    doubleRect(startX, startY, 3, 7, 1, 2);
+    doubleRect(startX, startY, 4, 3, 1, 4);
+    return 6 * this->scale;
 }
 
 double Text::upperW(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 5, 1, 2);
-    doubleRect(startX, startY, 2, 2, 1, 3);
-    doubleRect(startX, startY, 3, 5, 1, 2);
-    doubleRect(startX, startY, 4, 0, 1, 8);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 8, 1, 2);
+    doubleRect(startX, startY, 2, 5, 1, 3);
+    doubleRect(startX, startY, 3, 8, 1, 2);
+    doubleRect(startX, startY, 4, 3, 1, 8);
     return 6 * this->scale;
-
 }
 
 double Text::upperX(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 2);
-    doubleRect(startX, startY, 0, 6, 1, 2);
-    doubleRect(startX, startY, 1, 2, 1, 1);
+    doubleRect(startX, startY, 0, 3, 1, 2);
+    doubleRect(startX, startY, 0, 9, 1, 2);
     doubleRect(startX, startY, 1, 5, 1, 1);
-    doubleRect(startX, startY, 2, 3, 1, 2);
-    doubleRect(startX, startY, 3, 2, 1, 1);
+    doubleRect(startX, startY, 1, 8, 1, 1);
+    doubleRect(startX, startY, 2, 6, 1, 2);
     doubleRect(startX, startY, 3, 5, 1, 1);
-    doubleRect(startX, startY, 4, 0, 1, 2);
-    doubleRect(startX, startY, 4, 6, 1, 2);
+    doubleRect(startX, startY, 3, 8, 1, 1);
+    doubleRect(startX, startY, 4, 3, 1, 2);
+    doubleRect(startX, startY, 4, 9, 1, 2);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 2, 6, 1, 1);
-
+    rectangle(startX, startY, 2, 9, 1, 1);
+    rectangle(startX, startY, 0, 5, 1, 1);
     return 6 * this->scale;
-
 }
 
 double Text::upperY(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 2);
-    doubleRect(startX, startY, 1, 2, 1, 2);
-    doubleRect(startX, startY, 2, 4, 1, 4);
-    doubleRect(startX, startY, 3, 2, 1, 2);
-    doubleRect(startX, startY, 4, 0, 1, 2);
-
+    doubleRect(startX, startY, 0, 3, 1, 2);
+    doubleRect(startX, startY, 1, 5, 1, 2);
+    doubleRect(startX, startY, 2, 7, 1, 4);
+    doubleRect(startX, startY, 3, 5, 1, 2);
+    doubleRect(startX, startY, 4, 3, 1, 2);
     return 6 * this->scale;
-
 }
 
 double Text::upperZ(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 0, 4, 1);
-    doubleRect(startX, startY, 4, 0, 1, 2);
-    doubleRect(startX, startY, 0, 6, 1, 2);
-    doubleRect(startX, startY, 1, 5, 1, 1);
-    doubleRect(startX, startY, 2, 3, 1, 2);
-    doubleRect(startX, startY, 3, 2, 1, 1);
-    doubleRect(startX, startY, 1, 7, 4, 1);
-
+    doubleRect(startX, startY, 0, 3, 4, 1);
+    doubleRect(startX, startY, 4, 3, 1, 2);
+    doubleRect(startX, startY, 0, 9, 1, 2);
+    doubleRect(startX, startY, 1, 8, 1, 1);
+    doubleRect(startX, startY, 2, 6, 1, 2);
+    doubleRect(startX, startY, 3, 5, 1, 1);
+    doubleRect(startX, startY, 1, 10, 4, 1);
     return 6 * this->scale;
-
 }
 
 
+
+// LOWER LETTERS
+
 double Text::lowerA(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 7, 2, 1);
-    doubleRect(startX, startY, 1, 3, 4, 1);
-    doubleRect(startX, startY, 4, 4, 1, 4);
-    rectangle(startX, startY, 3, 6, 1, 1);
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 10, 2, 1);
+    doubleRect(startX, startY, 1, 6, 4, 1);
+    doubleRect(startX, startY, 4, 7, 1, 4);
+    rectangle(startX, startY, 3, 9, 1, 1);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 3, 8, 1, 1);
-
+    rectangle(startX, startY, 3, 11, 1, 1);
     return 6 * this->xMult;
 }
 
 double Text::lowerB(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 4, 1, 3);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
     return 6 * this->xMult;
 }
 
 double Text::lowerC(double startX, double startY) {
-
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 6, 1, 1);
-    rectangle(startX, startY, 4, 4, 1, 1);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 9, 1, 1);
+    rectangle(startX, startY, 4, 7, 1, 1);
     setTextColor2();
-    rectangle(startX, startY, 5, 4, 1, 1);
-
+    rectangle(startX, startY, 5, 7, 1, 1);
     return 6 * this->xMult;
 }
 
 double Text::lowerD(double startX, double startY) {
-
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 0, 1, 8);
-
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 8);
     return 6 * this->xMult;
 }
 
 double Text::lowerE(double startX, double startY) {
-
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 5, 3, 1);
-    doubleRect(startX, startY, 1, 7, 4, 1);
-    doubleRect(startX, startY, 4, 4, 1, 2);
-
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 8, 3, 1);
+    doubleRect(startX, startY, 1, 10, 4, 1);
+    doubleRect(startX, startY, 4, 7, 1, 2);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 5, 6, 1, 1);
-    rectangle(startX, startY, 5, 8, 1, 1);
-
+    rectangle(startX, startY, 5, 9, 1, 1);
+    rectangle(startX, startY, 5, 11, 1, 1);
     return 6 * this->xMult;
 }
 
 double Text::lowerF(double startX, double startY) {
-    
-    doubleRect(startX, startY, 2, 0, 2, 1);
-    doubleRect(startX, startY, 1, 1, 1, 7);
-    doubleRect(startX, startY, 0, 3, 4, 1);
-    rectangle(startX, startY, 1, 4, 1, 1);
+    doubleRect(startX, startY, 2, 3, 2, 1);
+    doubleRect(startX, startY, 1, 4, 1, 7);
+    doubleRect(startX, startY, 0, 6, 4, 1);
+    rectangle(startX, startY, 1, 7, 1, 1);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 4, 1, 1, 1);
-
+    rectangle(startX, startY, 4, 4, 1, 1);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerG(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 1, 9, 3, 1);
-    doubleRect(startX, startY, 4, 4, 1, 5);
-
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 1, 12, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 5);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerH(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 4, 4, 1, 4);
-
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 4);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerI(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 0, 1, 1);
-    doubleRect(startX, startY, 0, 3, 1, 5);
-
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 0, 6, 1, 5);
     return 2 * this->xMult;
-
 }
 
 double Text::lowerJ(double startX, double startY) {
-    
-    doubleRect(startX, startY, 3, 0, 1, 1);
-    doubleRect(startX, startY, 3, 3, 1, 6);
-    doubleRect(startX, startY, 0, 7, 1, 2);
-    doubleRect(startX, startY, 1, 9, 2, 1);
-
+    doubleRect(startX, startY, 3, 3, 1, 1);
+    doubleRect(startX, startY, 3, 6, 1, 6);
+    doubleRect(startX, startY, 0, 10, 1, 2);
+    doubleRect(startX, startY, 1, 12, 2, 1);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerK(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 0, 1, 8);
-    doubleRect(startX, startY, 1, 5, 1, 1);
-    doubleRect(startX, startY, 2, 4, 1, 1);
-    doubleRect(startX, startY, 3, 3, 1, 1);
-    doubleRect(startX, startY, 2, 6, 1, 1);
-    doubleRect(startX, startY, 3, 7, 1, 1);
+    doubleRect(startX, startY, 0, 3, 1, 8);
+    doubleRect(startX, startY, 1, 8, 1, 1);
+    doubleRect(startX, startY, 2, 7, 1, 1);
+    doubleRect(startX, startY, 3, 6, 1, 1);
+    doubleRect(startX, startY, 2, 9, 1, 1);
+    doubleRect(startX, startY, 3, 10, 1, 1);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 3, 5, 1, 1);
-    rectangle(startX, startY, 4, 4, 1, 1);
+    rectangle(startX, startY, 3, 8, 1, 1);
+    rectangle(startX, startY, 4, 7, 1, 1);
     return 5 * this->xMult;
-
 }
 
-double Text::lowerL(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 0, 1, 1);
-    doubleRect(startX, startY, 1, 0, 1, 8);
-
+double Text::lowerL(double startX, double startY) { 
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 1, 3, 1, 8);
     return 3 * this->xMult;
-
 }
 
 double Text::lowerM(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 5);
-    doubleRect(startX, startY, 2, 3, 1, 5);
-    doubleRect(startX, startY, 3, 3, 1, 1);
-    doubleRect(startX, startY, 4, 4, 1, 4);
-    rectangle(startX, startY, 1, 3, 1, 1);
+    doubleRect(startX, startY, 0, 6, 1, 5);
+    doubleRect(startX, startY, 2, 6, 1, 5);
+    doubleRect(startX, startY, 3, 6, 1, 1);
+    doubleRect(startX, startY, 4, 7, 1, 4);
+    rectangle(startX, startY, 1, 6, 1, 1);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 1, 8, 1, 1);
-    rectangle(startX, startY, 3, 8, 1, 1);
-
+    rectangle(startX, startY, 1, 11, 1, 1);
+    rectangle(startX, startY, 3, 11, 1, 1);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerN(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 5);
-    doubleRect(startX, startY, 1, 3, 2, 1);
-    doubleRect(startX, startY, 3, 4, 1, 4);
-
+    doubleRect(startX, startY, 0, 6, 1, 5);
+    doubleRect(startX, startY, 1, 6, 2, 1);
+    doubleRect(startX, startY, 3, 7, 1, 4);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerO(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 4, 1, 3);
-
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerP(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 7);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 4, 1, 3);
-
+    doubleRect(startX, startY, 0, 6, 1, 7);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerQ(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 4, 1, 3);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 4, 3, 1, 7);
-
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 6, 1, 7);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerR(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 5);
-    doubleRect(startX, startY, 2, 3, 2, 1);
-    doubleRect(startX, startY, 1, 4, 1, 1);
-
+    doubleRect(startX, startY, 0, 6, 1, 5);
+    doubleRect(startX, startY, 2, 6, 2, 1);
+    doubleRect(startX, startY, 1, 7, 1, 1);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerS(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 2);
-    doubleRect(startX, startY, 1, 3, 3, 1);
-    doubleRect(startX, startY, 1, 5, 2, 1);
-    doubleRect(startX, startY, 0, 7, 3, 1);
-    doubleRect(startX, startY, 3, 6, 1, 2);
-
+    doubleRect(startX, startY, 0, 6, 1, 2);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 8, 2, 1);
+    doubleRect(startX, startY, 0, 10, 3, 1);
+    doubleRect(startX, startY, 3, 9, 1, 2);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerT(double startX, double startY) {
-    
-    doubleRect(startX, startY, 1, 1, 1, 2);
-    doubleRect(startX, startY, 0, 3, 4, 1);
-    doubleRect(startX, startY, 1, 4, 1, 4);
-    doubleRect(startX, startY, 2, 7, 2, 1);
-
+    doubleRect(startX, startY, 1, 4, 1, 2);
+    doubleRect(startX, startY, 0, 6, 4, 1);
+    doubleRect(startX, startY, 1, 7, 1, 4);
+    doubleRect(startX, startY, 2, 10, 2, 1);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerU(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 4);
-    doubleRect(startX, startY, 1, 7, 2, 1);
-    doubleRect(startX, startY, 3, 3, 1, 4);
-    doubleRect(startX, startY, 4, 7, 1, 1);
+    doubleRect(startX, startY, 0, 6, 1, 4);
+    doubleRect(startX, startY, 1, 10, 2, 1);
+    doubleRect(startX, startY, 3, 6, 1, 4);
+    doubleRect(startX, startY, 4, 10, 1, 1);
     ofSetColor(255, 255, 255);
-    rectangle(startX, startY, 3, 8, 1, 1);
-    rectangle(startX, startY, 5, 7, 1, 2);
-
+    rectangle(startX, startY, 3, 11, 1, 1);
+    rectangle(startX, startY, 5, 10, 1, 2);
     return 5 * this->xMult;
-
 }
 
 double Text::lowerV(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 2);
-    doubleRect(startX, startY, 1, 5, 1, 2);
-    doubleRect(startX, startY, 2, 7, 1, 1);
-    doubleRect(startX, startY, 3, 5, 1, 2);
-    doubleRect(startX, startY, 4, 3, 1, 2);
-
+    doubleRect(startX, startY, 0, 6, 1, 2);
+    doubleRect(startX, startY, 1, 8, 1, 2);
+    doubleRect(startX, startY, 2, 10, 1, 1);
+    doubleRect(startX, startY, 3, 8, 1, 2);
+    doubleRect(startX, startY, 4, 6, 1, 2);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerW(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 4);
-    doubleRect(startX, startY, 1, 7, 1, 1);
-    doubleRect(startX, startY, 2, 3, 1, 4);
-    doubleRect(startX, startY, 3, 7, 1, 1);
-    doubleRect(startX, startY, 4, 3, 1, 4);
-
+    doubleRect(startX, startY, 0, 6, 1, 4);
+    doubleRect(startX, startY, 1, 10, 1, 1);
+    doubleRect(startX, startY, 2, 6, 1, 4);
+    doubleRect(startX, startY, 3, 10, 1, 1);
+    doubleRect(startX, startY, 4, 6, 1, 4);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerX(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 1);
-    doubleRect(startX, startY, 1, 4, 1, 1);
-    doubleRect(startX, startY, 2, 5, 1, 1);
-    doubleRect(startX, startY, 3, 6, 1, 1);
-    doubleRect(startX, startY, 4, 7, 1, 1);
-    doubleRect(startX, startY, 0, 7, 1, 1);
-    doubleRect(startX, startY, 4, 3, 1, 1);
-    rectangle(startX, startY, 1, 6, 1, 1);
-    rectangle(startX, startY, 3, 4, 1, 1);
-
+    doubleRect(startX, startY, 0, 6, 1, 1);
+    doubleRect(startX, startY, 1, 7, 1, 1);
+    doubleRect(startX, startY, 2, 8, 1, 1);
+    doubleRect(startX, startY, 3, 9, 1, 1);
+    doubleRect(startX, startY, 4, 10, 1, 1);
+    doubleRect(startX, startY, 0, 10, 1, 1);
+    doubleRect(startX, startY, 4, 6, 1, 1);
+    rectangle(startX, startY, 1, 9, 1, 1);
+    rectangle(startX, startY, 3, 7, 1, 1);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerY(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 1, 4);
-    doubleRect(startX, startY, 1, 7, 3, 1);
-    doubleRect(startX, startY, 1, 9, 3, 1);
-    doubleRect(startX, startY, 4, 3, 1, 6);
-    rectangle(startX, startY, 0, 9, 1, 1);
-
+    doubleRect(startX, startY, 0, 6, 1, 4);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 1, 12, 3, 1);
+    doubleRect(startX, startY, 4, 6, 1, 6);
+    rectangle(startX, startY, 0, 12, 1, 1);
     return 6 * this->xMult;
-
 }
 
 double Text::lowerZ(double startX, double startY) {
-    
-    doubleRect(startX, startY, 0, 3, 5, 1);
-    doubleRect(startX, startY, 3, 4, 1, 1);
-    doubleRect(startX, startY, 2, 5, 1, 1);
-    rectangle(startX, startY, 1, 6, 1, 1);
-    doubleRect(startX, startY, 0, 7, 5, 1);
-
+    doubleRect(startX, startY, 0, 6, 5, 1);
+    doubleRect(startX, startY, 3, 7, 1, 1);
+    doubleRect(startX, startY, 2, 8, 1, 1);
+    rectangle(startX, startY, 1, 9, 1, 1);
+    doubleRect(startX, startY, 0, 10, 5, 1);
     return 6 * this->xMult;
-
 }
+
+
+
+// NUMBERS
+
+double Text::number0(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 7);
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 7);
+    return 6 * this->xMult;
+}
+
+double Text::number1(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 1, 2, 1, 8);
+    doubleRect(startX, startY, 0, 10, 3, 1);
+    return 3 * this->xMult;
+}
+
+double Text::number2(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 2);
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 3);
+    doubleRect(startX, startY, 3, 6, 1, 1);
+    doubleRect(startX, startY, 2, 7, 1, 1);
+    doubleRect(startX, startY, 1, 8, 1, 1);
+    doubleRect(startX, startY, 0, 9, 1, 2);
+    doubleRect(startX, startY, 1, 10, 4, 1);
+    return 6 * this->xMult;
+}
+
+double Text::number3(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 3);
+    doubleRect(startX, startY, 2, 6, 2, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 1, 9, 1, 1);
+    rectangle(startX, startY, 5, 6, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::number4(double startX, double startY) {
+    doubleRect(startX, startY, 1, 3, 1, 2);
+    doubleRect(startX, startY, 0, 5, 1, 3);
+    doubleRect(startX, startY, 0, 8, 5, 1);
+    doubleRect(startX, startY, 3, 2, 1, 9);
+    rectangle(startX, startY, 2, 2, 1, 1);
+    rectangle(startX, startY, 4, 8, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::number5(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 5, 1);
+    doubleRect(startX, startY, 0, 3, 1, 4);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 1, 9, 3, 1);
+    return 6 * this->xMult;
+}
+
+double Text::number6(double startX, double startY) {
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 1);
+    doubleRect(startX, startY, 0, 3, 1, 7);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
+    return 6 * this->xMult;
+}
+
+double Text::number7(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 5, 1);
+    doubleRect(startX, startY, 4, 3, 1, 3);
+    doubleRect(startX, startY, 3, 6, 1, 2);
+    doubleRect(startX, startY, 2, 8, 1, 3);
+    return 6 * this->xMult;
+}
+
+double Text::number8(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 3);
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 3);
+    doubleRect(startX, startY, 4, 7, 1, 3);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 5, 6, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::number9(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 3);
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 1, 2, 3, 1);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 3, 1, 7);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 0, 6, 1, 1);
+    return 6 * this->xMult;
+}
+
+
+
+// OTHER
+
+double Text::whitespace(double startX, double startY) {
+    return 4 * this->xMult;
+}
+
+double Text::exclamationMark(double startX, double startY) {
+    doubleRect(startX, startY, 0, 1, 1, 10);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 0, 8, 2, 1);
+    return 3 * this->xMult;
+}
+
+double Text::questionMark(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 1, 2);
+    doubleRect(startX, startY, 1, 1, 3, 1);
+    doubleRect(startX, startY, 4, 2, 1, 3);
+    doubleRect(startX, startY, 2, 6, 1, 6);
+    doubleRect(startX, startY, 3, 5, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 2, 8, 2, 1);
+    return 6 * this->xMult;
+}
+
+double Text::periodMark(double startX, double startY) {
+    doubleRect(startX, startY, 0, 9, 2, 2);
+    return 6 * this->xMult;
+}
+
+double Text::dashMark(double startX, double startY) {
+    doubleRect(startX, startY, 1, 6, 5, 1);
+    return 7 * this->xMult;
+}
+
+double Text::midPointMark(double startX, double startY) {
+    doubleRect(startX, startY, 1, 6, 2, 2);
+    return 4 * this->xMult;
+}
+
+double Text::threePoints(double startX, double startY) {
+    doubleRect(startX, startY, 0, 10, 5, 1);
+    setTextColor2();
+    rectangle(startX, startY, 1, 10, 1, 1);
+    rectangle(startX, startY, 3, 10, 1, 1);
+    return 4 * this->xMult;
+}
+
+double Text::leftQuotes(double startX, double startY) {
+    doubleRect(startX, startY, 0, 1, 2, 3);
+    doubleRect(startX, startY, 1, 0, 1, 1);
+    doubleRect(startX, startY, 3, 1, 2, 3);
+    doubleRect(startX, startY, 4, 0, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 2, 1, 1, 1);
+    rectangle(startX, startY, 5, 1, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::rightQuotes(double startX, double startY) {
+    doubleRect(startX, startY, 0, 0, 5, 3);
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 3, 3, 1, 1);
+    setTextColor2();
+    rectangle(startX, startY, 2, 0, 1, 3);
+    rectangle(startX, startY, 0, 2, 1, 1);
+    rectangle(startX, startY, 3, 2, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::leftApostrophe(double startX, double startY) {
+    doubleRect(startX, startY, 0, 1, 2, 3);
+    doubleRect(startX, startY, 1, 0, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 0, 0, 1, 1);
+    rectangle(startX, startY, 2, 1, 1, 1);
+    return 3 * this->xMult;
+}
+
+double Text::rightApostrophe(double startX, double startY) {
+    doubleRect(startX, startY, 0, 0, 2, 2);
+    doubleRect(startX, startY, 1, 2, 1, 1);
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    return 3 * this->xMult;
+}
+
+double Text::maleSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 1, 1);
+    doubleRect(startX, startY, 2, 1, 1, 5);
+    doubleRect(startX, startY, 4, 3, 1, 1);
+    doubleRect(startX, startY, 0, 7, 1, 3);
+    doubleRect(startX, startY, 1, 6, 3, 1);
+    doubleRect(startX, startY, 1, 10, 3, 1);
+    doubleRect(startX, startY, 4, 7, 1, 3);
+    rectangle(startX, startY, 1, 2, 1, 1);
+    rectangle(startX, startY, 3, 2, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::femaleSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 1, 3);
+    doubleRect(startX, startY, 1, 1, 3, 1);
+    doubleRect(startX, startY, 1, 5, 3, 1);
+    doubleRect(startX, startY, 4, 2, 1, 3);
+    doubleRect(startX, startY, 0, 7, 5, 1);
+    doubleRect(startX, startY, 2, 8, 1, 3);
+    rectangle(startX, startY, 2, 6, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::genderlessSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 1, 1, 1, 6);
+    doubleRect(startX, startY, 2, 1, 2, 1);
+    doubleRect(startX, startY, 2, 5, 1, 1);
+    doubleRect(startX, startY, 4, 2, 1, 3);
+    doubleRect(startX, startY, 0, 7, 5, 1);
+    doubleRect(startX, startY, 0, 9, 5, 1);
+    doubleRect(startX, startY, 1, 10, 1, 1);
+    rectangle(startX, startY, 3, 5, 1, 1);
+    rectangle(startX, startY, 1, 8, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::commaMark(double startX, double startY) {
+    doubleRect(startX, startY, 0, 9, 2, 2);
+    doubleRect(startX, startY, 1, 11, 1, 1);
+    doubleRect(startX, startY, 0, 12, 1, 1);
+    return 3 * this->xMult;
+}
+
+double Text::multiplySymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 1, 1);
+    doubleRect(startX, startY, 1, 5, 1, 1);
+    doubleRect(startX, startY, 2, 6, 2, 2);
+    doubleRect(startX, startY, 1, 8, 1, 1);
+    doubleRect(startX, startY, 0, 9, 1, 1);
+    doubleRect(startX, startY, 4, 5, 1, 1);
+    doubleRect(startX, startY, 4, 8, 1, 1);
+    doubleRect(startX, startY, 5, 4, 1, 1);
+    doubleRect(startX, startY, 5, 9, 1, 1);
+    return 7 * this->xMult;
+}
+
+double Text::divisionSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 9, 1, 2);
+    doubleRect(startX, startY, 1, 7, 1, 2);
+    doubleRect(startX, startY, 2, 5, 1, 2);
+    doubleRect(startX, startY, 3, 3, 1, 2);
+    doubleRect(startX, startY, 4, 1, 1, 2);
+    return 6 * this->xMult;
+}
+
+double Text::specialE(double startX, double startY) {
+    doubleRect(startX, startY, 2, 3, 2, 1);
+    rectangle(startX, startY, 1, 4, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 4, 1, 1);
+    lowerE(startX, startY);
+    return 6 * this->xMult;
+}
+
+double Text::ampersandSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 2, 1, 1, 1);
+    doubleRect(startX, startY, 1, 2, 1, 2);
+    doubleRect(startX, startY, 3, 2, 1, 2);
+    doubleRect(startX, startY, 2, 4, 1, 2);
+    doubleRect(startX, startY, 1, 6, 1, 1);
+    doubleRect(startX, startY, 0, 7, 1, 2);
+    doubleRect(startX, startY, 1, 9, 2, 1);
+    doubleRect(startX, startY, 3, 6, 1, 3);
+    doubleRect(startX, startY, 4, 5, 1, 1);
+    doubleRect(startX, startY, 4, 9, 1, 1);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 4, 4, 1, 1);
+    rectangle(startX, startY, 3, 10, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::additionSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 7, 2, 1);
+    doubleRect(startX, startY, 2, 5, 1, 5);
+    doubleRect(startX, startY, 3, 7, 2, 1);
+    return 6 * this->xMult;
+}
+
+double Text::levelSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 1, 7);
+    doubleRect(startX, startY, 1, 10, 2, 1);
+    lowerV(startX + (4 * this->xMult), startY);
+    return 10 * this->xMult;
+}
+
+double Text::equalSign(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 5, 1);
+    doubleRect(startX, startY, 0, 7, 5, 1);
+    return 6 * this->xMult;
+}
+
+double Text::semiColonMark(double startX, double startY) {
+    doubleRect(startX, startY, 0, 3, 2, 2);
+    doubleRect(startX, startY, 0, 7, 2, 2);
+    doubleRect(startX, startY, 1, 9, 1, 1);
+    doubleRect(startX, startY, 0, 10, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::percentageSymbol(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 3, 4);
+    doubleRect(startX, startY, 1, 10, 1, 2);
+    doubleRect(startX, startY, 2, 8, 1, 2);
+    doubleRect(startX, startY, 3, 6, 1, 2);
+    doubleRect(startX, startY, 4, 4, 1, 2);
+    doubleRect(startX, startY, 5, 2, 1, 2);
+    doubleRect(startX, startY, 4, 8, 3, 4);
+    setTextColor2();
+    rectangle(startX, startY, 1, 3, 1, 2);
+    rectangle(startX, startY, 5, 9, 1, 2);
+    ofSetColor(255, 255, 255);
+    rectangle(startX, startY, 3, 10, 1, 1);
+    return 6 * this->xMult;
+}
+
+double Text::upArrow(double startX, double startY) {
+    doubleRect(startX, startY, 0, 4, 2, 1);
+    rectangle(startX, startY, 1, 3, 1, 1);
+    doubleRect(startX, startY, 2, 2, 5, 6);
+    rectangle(startX, startY, 3, 1, 3, 1);
+    rectangle(startX, startY, 4, 0, 1, 1);
+    doubleRect(startX, startY, 7, 3, 1, 2);
+    doubleRect(startX, startY, 8, 4, 1, 1);
+    setTextColor2();
+    rectangle(startX, startY, 5, 0, 1, 1);
+    rectangle(startX, startY, 6, 1, 1, 1);
+    rectangle(startX, startY, 7, 2, 1, 1);
+    return 10 * this->xMult;
+}
+
+double Text::downArrow(double startX, double startY) {
+    doubleRect(startX, startY, 4, 8, 1, 1);
+    doubleRect(startX, startY, 5, 7, 1, 1);
+    doubleRect(startX, startY, 6, 6, 1, 1);
+    doubleRect(startX, startY, 7, 5, 1, 1);
+    doubleRect(startX, startY, 8, 4, 1, 1);
+    rectangle(startX, startY, 7, 4, 1, 1);
+    rectangle(startX, startY, 2, 1, 5, 6);
+    rectangle(startX, startY, 3, 7, 2, 1);
+    rectangle(startX, startY, 0, 4, 1, 1);
+    rectangle(startX, startY, 1, 4, 1, 2);
+    setTextColor2();
+    rectangle(startX, startY, 0, 5, 1, 1);
+    rectangle(startX, startY, 1, 6, 1, 1);
+    rectangle(startX, startY, 2, 7, 1, 1);
+    rectangle(startX, startY, 3, 8, 1, 1);
+    rectangle(startX, startY, 7, 1, 1, 3);
+    return 10 * this->xMult;
+}
+
+double Text::leftArrow(double startX, double startY) {
+    doubleRect(startX, startY, 4, 0, 1, 2);
+    rectangle(startX, startY, 3, 1, 1, 1);
+    doubleRect(startX, startY, 2, 2, 6, 5);
+    rectangle(startX, startY, 1, 3, 1, 3);
+    rectangle(startX, startY, 0, 4, 1, 1);
+    rectangle(startX, startY, 3, 7, 1, 1);
+    doubleRect(startX, startY, 4, 7, 1, 2);
+    setTextColor2();
+    rectangle(startX, startY, 0, 5, 1, 1);
+    rectangle(startX, startY, 1, 6, 1, 1);
+    rectangle(startX, startY, 2, 7, 1, 1);
+    rectangle(startX, startY, 3, 8, 1, 1);
+    return 9 * this->xMult;
+}
+
+double Text::rightArrow(double startX, double startY) {
+    doubleRect(startX, startY, 0, 2, 6, 5);
+    rectangle(startX, startY, 3, 0, 1, 1);
+    rectangle(startX, startY, 3, 1, 2, 1);
+    doubleRect(startX, startY, 6, 3, 1, 3);
+    doubleRect(startX, startY, 7, 4, 1, 1);
+    doubleRect(startX, startY, 3, 7, 1, 2);
+    doubleRect(startX, startY, 4, 7, 1, 1);
+    setTextColor2();
+    rectangle(startX, startY, 4, 0, 1, 1);
+    rectangle(startX, startY, 5, 1, 1, 1);
+    rectangle(startX, startY, 6, 2, 1, 1);
+    return 9 * this->xMult;
+}
+
+double Text::nextLineSymbol(double startX, double startY) {
+    rectangle(startX, startY, 0, 6, 1, 3);
+    rectangle(startX, startY, 1, 6, 6, 1);
+    rectangle(startX, startY, 1, 9, 1, 1);
+    rectangle(startX, startY, 2, 10, 1, 1);
+    rectangle(startX, startY, 3, 11, 1, 1);
+    rectangle(startX, startY, 4, 10, 1, 1);
+    rectangle(startX, startY, 5, 9, 1, 1);
+    rectangle(startX, startY, 6, 7, 1, 2);
+    ofSetColor(210, 0, 0);
+    rectangle(startX, startY, 1, 7, 5, 1);
+    ofSetColor(228, 0, 0);
+    rectangle(startX, startY, 1, 8, 5, 1);
+    ofSetColor(255, 0, 0);
+    rectangle(startX, startY, 2, 9, 3, 1);
+    rectangle(startX, startY, 3, 10, 1, 1);
+    return 6 * this->xMult;
+}
+
+
 
 
 
@@ -977,7 +1255,7 @@ void Text::newCharPrints() {
     // this->upperU(xPos, yPos);
     // this->upperV(xPos, yPos);
     // this->upperW(xPos, yPos);
-    // this->upperX(xPos + 100, yPos);
+    // this->upperX(xPos, yPos);
     // this->upperY(xPos, yPos);
     // this->upperZ(xPos, yPos);
 
@@ -1012,4 +1290,45 @@ void Text::newCharPrints() {
 
 
 
+    // this->number0(xPos, yPos);
+    // this->number1(xPos, yPos);
+    // this->number2(xPos, yPos);
+    // this->number3(xPos, yPos);
+    // this->number4(xPos, yPos);
+    // this->number5(xPos, yPos);
+    // this->number6(xPos, yPos);
+    // this->number7(xPos, yPos);
+    // this->number8(xPos, yPos);
+    // this->number9(xPos, yPos);
+
+
+
+    // this->exclamationMark(xPos, yPos);
+    // this->questionMark(xPos, yPos);
+    // this->periodMark(xPos, yPos);
+    // this->dashMark(xPos, yPos);
+    // this->midPointMark(xPos, yPos);
+    // this->threePoints(xPos, yPos);
+    // this->leftQuotes(xPos, yPos);
+    //  this->rightQuotes(xPos, yPos);
+    // this->leftApostrophe(xPos, yPos);
+    // this->rightApostrophe(xPos, yPos);
+    // this->maleSymbol(xPos, yPos);
+    // this->femaleSymbol(xPos, yPos);
+    // this->genderlessSymbol(xPos, yPos);
+    // this->commaMark(xPos, yPos);
+    // this->multiplySymbol(xPos, yPos);
+    // this->divisionSymbol(xPos, yPos);
+    // this->specialE(xPos, yPos);
+    // this->ampersandSymbol(xPos, yPos);
+    // this->additionSymbol(xPos, yPos);
+    // this->levelSymbol(xPos, yPos);
+    // this->equalSign(xPos, yPos);
+    // this->semiColonMark(xPos, yPos);
+    // this->percentageSymbol(xPos, yPos);
+    // this->upArrow(xPos, yPos);
+    // this->downArrow(xPos, yPos);
+    // this->leftArrow(xPos, yPos);
+    // this->rightArrow(xPos, yPos);
+    // this->nextLineSymbol(xPos, yPos);
 }
