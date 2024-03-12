@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../Resources/Text.h"
+#include "../Resources/Textbox.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,7 +24,7 @@ class ofApp : public ofBaseApp{
 		void adjustGameScreen();
 		void setTextBox();
 		bool showTextBox;
-		Text* dummyTextBox;
+		Textbox* textoBox;
 
 		void drawScreen();
 
@@ -45,11 +45,6 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-
-		double xPixMult;
-		double yPixMult;
-		double getPixMultX();
-		double getPixMultY();
 		
 		ofVideoPlayer introMovie;
 };

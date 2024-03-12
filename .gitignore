@@ -8,6 +8,7 @@ obj/linux64/
 # MAC OSX
 obj/osx/
 bin/pokemonRed.app/
+bin/pokemonRed_debug.app/
 .vscode
 openFrameworks-Info.plist
 

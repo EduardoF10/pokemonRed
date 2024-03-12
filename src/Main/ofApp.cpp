@@ -8,7 +8,7 @@ void ofApp::setup(){
     this->fullScreenHeight = ofGetScreenHeight();
     this->adjustGameScreen();
     this->setTextBox();
-    this->showTextBox = true;
+    this->showTextBox = false;
 
     this->updateDim();
 
@@ -17,20 +17,25 @@ void ofApp::setup(){
 }
 
 void ofApp::setTextBox() {
-    std::string introText1 = "Hello world!My name is Eduardo, I will be your host for Pokemon Red.Do you have any questions?";
+    std::string introText1 = "Hello world!My name is Eduardo, and I will be your host for Pokemon Red.Do you have any questions?";
     std::string introText2 = "abcdefabcdeabffcd.";
-    this->dummyTextBox = new  Text(DEFAULT_TEXT_SPEED, 0, introText1);
+    std::string introText3 = "abcd efghijklmno.pqrstuvwxyz";
+    this->textoBox = new Textbox(5, 0, introText1);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    this->adjustGameScreen();
-
-    this->updateDim();
+    // Screen Size change
+    if (ofGetWindowWidth() != this->screenWidth || ofGetWindowHeight() != this->screenHeight) {
+        this->adjustGameScreen();
+        this->updateDim();
+    }
     // introMovie.update();
 
-    this->dummyTextBox->tick();
+    if (showTextBox) {
+        this->textoBox->tick();
+    }
 
 }
 
@@ -40,16 +45,14 @@ void ofApp::draw(){
     this->drawScreen();
 
     if (showTextBox) {
-        // this->dummyTextBox->render();
-        // this->dummyTextBox->save();  // Too slow
-
-        this->dummyTextBox->newCharPrints();
+        this->textoBox->render();
     }
 
     // introMovie.draw(0, 0, 480, 320);
 
 }
 
+//--------------------------------------------------------------
 void ofApp::drawScreen() {
 
     ofSetColor(255, 255, 255);
@@ -57,32 +60,23 @@ void ofApp::drawScreen() {
 
 }
 
+//--------------------------------------------------------------
 void ofApp::adjustGameScreen() {
-
 
     double curWidth = static_cast<double>(ofGetWindowWidth());
     double curHeight = static_cast<double>(ofGetWindowHeight());
-    double newHeight, newWidth;
+    double newHeight, newWidth, scale;
     
+    // Smallest side has priority
     if (curWidth / curHeight > 1.5) {
-        // newWidth = curWidth;
-        // newHeight = curWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-        // if (newHeight > curHeight) {
-        //     newHeight = curHeight;
-        //     newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-        // } 
+        scale = curHeight / ORIGINAL_HEIGHT;
         newHeight = curHeight;
-        newWidth = newHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
+        newWidth = scale * ORIGINAL_WIDTH;
     }
     else {
-        // newHeight = curHeight;
-        // newWidth = curHeight * (ORIGINAL_WIDTH / ORIGINAL_HEIGHT);
-        // if (newWidth > curWidth) {
-        //     newWidth = curWidth;
-        //     newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
-        // }
+        scale = curWidth / ORIGINAL_WIDTH;
         newWidth = curWidth;
-        newHeight = newWidth * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
+        newHeight = scale * ORIGINAL_HEIGHT;
     }
 
     this->screenWidth = newWidth;
@@ -94,20 +88,18 @@ void ofApp::adjustGameScreen() {
 
 //--------------------------------------------------------------
 void ofApp::updateDim(){
-
-    // Get current screen dimensions
-    double xPixMult = this->screenWidth / ORIGINAL_WIDTH;
-    double yPixMult = this->screenHeight / ORIGINAL_HEIGHT;
-
-    this->dummyTextBox->scaleDims(this->screenStartX, this->screenStartY, xPixMult, yPixMult);
-
+    double scale = this->screenWidth / ORIGINAL_WIDTH;
+    this->textoBox->scaleDims(this->screenStartX, this->screenStartY, scale);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
     if  (key == 'a') {
-        this->dummyTextBox->toggleNextLine();
+        this->textoBox->toggleNextLine();
+    }
+    if (key == 'g') {
+        this->showTextBox = true;
     }
 
 }
