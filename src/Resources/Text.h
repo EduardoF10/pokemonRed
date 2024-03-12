@@ -1,212 +1,22 @@
 #include "ofMain.h"
-#include "TextSprites.h"
-#include <cmath>
-#include <string>
+#include "DrawTools.h"
 
-const int LINE_CHAR_LIMIT = 26;
-
-const int CHAR_SPACE_X = 7;
-const int CHAR_SPACE_Y = 15;
-
-const int BOX_START_X = 7;
-const int BOX_START_Y = 116;
-const int BOX_START_TEXT_POS_X = 11;
-const int BOX_START_TEXT_POS_Y = 7;
-const int BOX_NEXT_LINE_Y = 22;
-
-const int NEXT_ICON_SPEED = 4;
-const int NEXT_ICON_MOVEDIST = 3;
+using TextFunctionPointer = std::function<double(double, double, double)>;
 
 class Text {
 
 private:
 
-    double execTimeCount = 0;
-    double execTimeTotal = 0;
-    double execTimeAvg = 0;
+    std::vector<TextFunctionPointer> textFunctionsList;
 
-    double xMult;  // Pixel scaling on x-axis
-    double yMult;  // Pixel scaling on y-axis
-    double screenStartX;   
-    double screenStartY;
-
-    int scale;
-
-    int charWidth;  // Pixel width for each char
-    int charHeight; // Pixel height for each char
-
-    int speed;  // The speed of reading text
-
-    int timer;  // Timer for animation
-
-    bool finishPrint;    // Print stopper
-
-    bool goNextLine;    // Next line permission
-
-    bool showTextBox;   // Display stopper
-
-    // Indexes for printing chars
-    int sentenceIndex;
-    int lineIndex;
-    int charIndex;
-
-    int boxOption;    // Text box choice number
-
-    std::string text;   // Text that will be displayed
-
-    std::vector<std::vector<std::string>> readyText;
-
-    ofImage textBox;
-
-    TextSprites* textSprites;
-
-    void prepareText();
-
-    void printChar(char charVal, float xPos, float yPos, float width, float height);
-    void printAllChars();
-
-    int getCharSpace(char prev);
-
+    void setFunctions();
 
 public:
 
-    Text(int speed, int textBox, std::string text);
+    Text();
 
-    void scaleDims(double startX, double startY, double xMult, double yMult);
+    double drawChar(char charItem, double x, double y, double scale);
 
-    void setSpeed(int speed);
+    double drawNext(double x, double y, double scale);
 
-    void setTextBox(int boxOption);
-
-    void setText(std::string text);
-
-    void render();
-
-    void tick();
-
-    void toggleNextLine();
-
-    void toggleShow(bool show);
-
-    void quickDisplay();
-
-    // void save();    // Too slow
-
-    void reset();
-
-    void horizontalStick(double startX, double startY, double xDist, double yDist, double width);
-    void verticalStick(double startX, double startY, double xDist, double yDist, double length);
-    void rectangle(double startX, double startY, double xDist, double yDist, double width, double height);
-    void doubleRect(double startX, double startY, double xDist, double yDist, double width, double height);
-
-    // double timeChecker(double (Text::*)(double startX, double startY), double xPos, double yPos);
-    // template <typename Func>
-    // double timeChecker(Func func, double xPos, double yPos);
-
-
-    // Colors
-    void setTextColor1();
-    void setTextColor2();
-
-
-
-    double lowerA(double startX, double startY);
-    double lowerB(double startX, double startY);
-    double lowerC(double startX, double startY);
-    double lowerD(double startX, double startY);
-    double lowerE(double startX, double startY);
-    double lowerF(double startX, double startY);
-    double lowerG(double startX, double startY);
-    double lowerH(double startX, double startY);
-    double lowerI(double startX, double startY);
-    double lowerJ(double startX, double startY);
-    double lowerK(double startX, double startY);
-    double lowerL(double startX, double startY);
-    double lowerM(double startX, double startY);
-    double lowerN(double startX, double startY);
-    double lowerO(double startX, double startY);
-    double lowerP(double startX, double startY);
-    double lowerQ(double startX, double startY);
-    double lowerR(double startX, double startY);
-    double lowerS(double startX, double startY);
-    double lowerT(double startX, double startY);
-    double lowerU(double startX, double startY);
-    double lowerV(double startX, double startY);
-    double lowerW(double startX, double startY);
-    double lowerX(double startX, double startY);
-    double lowerY(double startX, double startY);
-    double lowerZ(double startX, double startY);
-
-    double upperA(double startX, double startY);
-    double upperB(double startX, double startY);
-    double upperC(double startX, double startY);
-    double upperD(double startX, double startY);
-    double upperE(double startX, double startY);
-    double upperF(double startX, double startY);
-    double upperG(double startX, double startY);
-    double upperH(double startX, double startY);
-    double upperI(double startX, double startY);
-    double upperJ(double startX, double startY);
-    double upperK(double startX, double startY);
-    double upperL(double startX, double startY);
-    double upperM(double startX, double startY);
-    double upperN(double startX, double startY);
-    double upperO(double startX, double startY);
-    double upperP(double startX, double startY);
-    double upperQ(double startX, double startY);
-    double upperR(double startX, double startY);
-    double upperS(double startX, double startY);
-    double upperT(double startX, double startY);
-    double upperU(double startX, double startY);
-    double upperV(double startX, double startY);
-    double upperW(double startX, double startY);
-    double upperX(double startX, double startY);
-    double upperY(double startX, double startY);
-    double upperZ(double startX, double startY);
-
-    double number0(double startX, double startY);
-    double number1(double startX, double startY);
-    double number2(double startX, double startY);
-    double number3(double startX, double startY);
-    double number4(double startX, double startY);
-    double number5(double startX, double startY);
-    double number6(double startX, double startY);
-    double number7(double startX, double startY);
-    double number8(double startX, double startY);
-    double number9(double startX, double startY);
-
-    double whitespace(double starX, double startY);
-    double exclamationMark(double startX, double startY);
-    double questionMark(double startX, double startY);
-    double periodMark(double startX, double startY);
-    double dashMark(double startX, double startY);
-    double midPointMark(double startX, double startY);
-    double threePoints(double startX, double startY);
-    double leftQuotes(double startX, double startY);
-    double rightQuotes(double startX, double startY);
-    double leftApostrophe(double startX, double startY);
-    double rightApostrophe(double startX, double startY);
-    double maleSymbol(double startX, double startY);
-    double femaleSymbol(double startX, double startY);
-    double genderlessSymbol(double startX, double startY);
-    double commaMark(double startX, double startY);
-    double multiplySymbol(double startX, double startY);
-    double divisionSymbol(double startX, double startY);
-    double colonMark(double startX, double startY);
-    double specialE(double startX, double startY);
-    double ampersandSymbol(double startX, double startY);
-    double additionSymbol(double startX, double startY);
-    double levelSymbol(double startX, double startY);
-    double equalSign(double startX, double startY);
-    double semiColonMark(double startX, double startY);
-    double percentageSymbol(double startX, double startY);
-    double upArrow(double startX, double startY);
-    double downArrow(double startX, double startY);
-    double leftArrow(double startX, double startY);
-    double rightArrow(double startX, double startY);
-    double nextLineSymbol(double startX, double startY);
-
-
-
-    void newCharPrints();
 };
